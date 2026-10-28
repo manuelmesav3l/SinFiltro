@@ -27,13 +27,14 @@
 
 **Sin Filtro** es un sitio web de landing page para el proyecto de asesorías de pareja de Vale y JuanPa. El sitio ofrece:
 
-- 🎯 Sección **Hero** con canvas animado, citas rotatorias y efecto parallax
-- 📋 Sección de **Servicios** con las modalidades de consultoría
+- 🎯 Sección **Hero** con fondo de video dinámico, efecto teclado máquina de escribir (Typewriter) y parallax cinemático
+- 🌌 **Diseño Dark Mode Obsidian**: paleta inmersiva en negro obsidiana, rojo carmesí y morado lila
+- 🔘 **Barra de navegación píldora** con botón CTA vibrante y microinteracciones suaves
+- 📋 Sección de **Servicios** y formatos de consultoría (*Acuerdos desde adentro*)
 - 👫 Sección **Sobre nosotros** con la historia de Vale y JuanPa
 - 💬 **Testimonios** de clientes con carrusel automático
 - ❓ Sección de **Preguntas frecuentes (FAQ)** con acordeón interactivo
-- 📞 **CTA** (llamado a la acción) para agendar consultas
-- 📝 **Modal** de contacto/agendamiento integrado
+- 📞 **CTA** de agenda y modal de contacto integrado con formulario seguro
 
 ---
 
