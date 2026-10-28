@@ -58,6 +58,29 @@
   opacity: 0.8;
 }
 
+/* iOS dibuja su propio botón de play sobre un video con autoplay bloqueado: se oculta. */
+.hero-bg__video::-webkit-media-controls,
+.hero-bg__video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Fallback si el autoplay está bloqueado (Modo de bajo consumo): la imagen se mueve despacio
+   para que el humo no se vea congelado. Se pausa en cuanto el video empieza a reproducirse. */
+.hero-bg.is-still .hero-bg__plate {
+  animation: hero-plate-drift 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-bg.is-playing .hero-bg__plate {
+  animation-play-state: paused;
+}
+
+@keyframes hero-plate-drift {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-2%, -1.5%, 0); }
+}
+
 /* ── Canvas animado ── */
 .hero-canvas {
   position: absolute;
@@ -340,6 +363,10 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-bg__video {
     display: none !important;
+  }
+
+  .hero-bg.is-still .hero-bg__plate {
+    animation: none;
   }
 
   .scroll-cue {
