@@ -77,11 +77,14 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
-
         <a href="/home.html#explora">Explora el universo</a>
         <a href="/acuerdos.html">Acuerdos desde adentro</a>
         <a href="/nosotros.html" class="active">¿Quiénes somos?</a>
-        <!-- Playlist: abre la tarjeta del reproductor (#spotifyCard) -->
+        <button class="btn nav-cta nav-cta--menu" data-modal="modalAgenda">Agenda tu cita <span class="nav-cta-arrow" aria-hidden="true">→</span></button>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Playlist: abre la tarjeta del reproductor (#spotifyCard) — visible siempre, fuera del menú móvil -->
         <button type="button" class="spotify-floating-btn header-playlist" id="spotifyFloatingBtn" aria-expanded="false"
           aria-controls="spotifyCard" aria-label="Playlist Sin Filtro: abrir reproductor">
           <span class="spotify-fab-icon-wrap">
@@ -97,13 +100,14 @@
           </span>
           <span class="spotify-fab-label">Playlist</span>
         </button>
-        <button class="btn nav-cta" data-modal="modalAgenda">Agenda tu cita <span class="nav-cta-arrow" aria-hidden="true">→</span></button>
-      </nav>
 
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"
-        aria-controls="navLinks">
-        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
-      </button>
+        <button class="btn nav-cta nav-cta--desktop" data-modal="modalAgenda">Agenda tu cita <span class="nav-cta-arrow" aria-hidden="true">→</span></button>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"
+          aria-controls="navLinks">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
     </div>
   </header>
 

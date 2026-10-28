@@ -293,7 +293,7 @@
 }
 
 /* ── Responsive ── */
-/* Móvil: el botón vive dentro del menú desplegable, como una fila más a todo el ancho */
+/* Móvil: el botón vive en el header fijo al lado de la hamburguesa, siempre accesible fuera del menú */
 @media (max-width: 899px) {
   .spotify-floating-widget {
     top: 4.6rem;
@@ -301,12 +301,37 @@
   }
 
   .spotify-floating-btn {
-    width: 100%;
-    height: 44px;
-    padding: 0 1rem 0 0.4rem;
-    justify-content: flex-start;
+    width: auto;
+    height: 36px;
+    padding: 0 0.75rem 0 0.28rem;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .spotify-fab-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+
+  .spotify-fab-label {
+    font-size: 0.8rem;
+    font-weight: 600;
   }
 }
+
+@media (max-width: 350px) {
+  .spotify-floating-btn {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+  }
+
+  .spotify-fab-label {
+    display: none;
+  }
+}
+
 
 @media (max-width: 640px) {
   .spotify-card {
