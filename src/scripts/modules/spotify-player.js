@@ -83,6 +83,14 @@ export function initSpotifyPlayer() {
     if (isOpen) {
       closeCard();
     } else {
+      // Si el menú móvil estuviera abierto, cerrarlo para no solapar
+      const navLinks = document.getElementById('navLinks');
+      const navToggle = document.getElementById('navToggle');
+      if (navLinks?.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        navToggle?.setAttribute('aria-label', 'Abrir menú');
+      }
       openCard();
       // Si aún no está reproduciendo (y no fue una pausa del usuario), iniciar al abrir
       if (!isPlaying && !userPaused) attemptPlay();

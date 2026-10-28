@@ -29,12 +29,22 @@ export function initHeader() {
   }
 
   navToggle.addEventListener('click', () => {
-    setMenu(!navLinks.classList.contains('open'));
+    const willOpen = !navLinks.classList.contains('open');
+    if (willOpen) {
+      // Si la tarjeta de Spotify estuviera abierta, cerrarla para evitar solapamientos
+      const spotifyCard = document.getElementById('spotifyCard');
+      const fabBtn = document.getElementById('spotifyFloatingBtn');
+      if (spotifyCard?.classList.contains('is-open')) {
+        spotifyCard.classList.remove('is-open');
+        fabBtn?.setAttribute('aria-expanded', 'false');
+      }
+    }
+    setMenu(willOpen);
   });
 
-  // Elegir un enlace cierra el menú
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setMenu(false));
+  // Elegir un enlace o botón interno cierra el menú
+  navLinks.querySelectorAll('a, button').forEach((item) => {
+    item.addEventListener('click', () => setMenu(false));
   });
 
   // Escape cierra y devuelve el foco al botón
