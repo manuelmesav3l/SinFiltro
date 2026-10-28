@@ -17,22 +17,44 @@ export function initHeroBackground() {
     return;
   }
 
-  function handleLoaded() {
+  const bg = video.closest('.hero-bg');
+  const gestureEvents = ['touchend', 'pointerup', 'click', 'keydown'];
+
+  // iOS Safari solo permite autoplay si la *propiedad* muted es true (el atributo no basta).
+  video.muted = true;
+  video.defaultMuted = true;
+
+  function tryPlay() {
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay bloqueado (p. ej. Modo de bajo consumo de iOS): se queda la imagen still
+        // con un leve movimiento y se reintenta en el siguiente gesto del usuario.
+        bg?.classList.add('is-still');
+      });
+    }
+  }
+
+  // El video solo se muestra cuando de verdad avanza; antes, un video pausado dejaba el primer
+  // fotograma congelado (y el botón de play nativo de iOS) encima del fondo.
+  video.addEventListener('playing', () => {
     video.classList.add('is-loaded');
-  }
+    bg?.classList.add('is-playing');
+    gestureEvents.forEach((evt) => document.removeEventListener(evt, tryPlay, true));
+  }, { once: true });
 
-  if (video.readyState >= 2) {
-    handleLoaded();
-  } else {
-    video.addEventListener('loadeddata', handleLoaded, { once: true });
-  }
+  // Los navegadores móviles exigen un gesto para reanudar un autoplay bloqueado.
+  gestureEvents.forEach((evt) => document.addEventListener(evt, tryPlay, { capture: true, passive: true }));
 
-  const playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      // Si el navegador bloquea autoplay, se mantiene visible la imagen still plate
-    });
-  }
+  // Al volver a la pestaña o desde el caché de ida/vuelta (bfcache) el video puede quedar pausado.
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && video.paused) tryPlay();
+  });
+  window.addEventListener('pageshow', () => {
+    if (video.paused) tryPlay();
+  });
+
+  tryPlay();
 }
 
 // ── Parallax de halos (el hero permanece fijo) ────────────
