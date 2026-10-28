@@ -142,29 +142,25 @@
   flex-shrink: 0;
 }
 
-/* CTA button: en desktop se muestra el botón en .header-actions; en móvil dentro de .nav-links desplegado */
-.nav-cta--menu {
+/* CTA button: en desktop se muestra el botón en .header-actions; en móvil dentro de .nav-links desplegado.
+   Se escopa con .header (0,2,0) porque .nav-cta más abajo fuerza display con !important (0,1,0)
+   y, con la misma especificidad, ganaba por orden y mostraba el botón del header en móvil. */
+.header .nav-cta--menu {
   display: none !important;
 }
 
-.nav-cta--desktop {
+.header .nav-cta--desktop {
   display: none !important;
 }
 
 @media (min-width: 900px) {
-  .nav-cta--desktop {
+  .header .nav-cta--desktop {
     display: inline-flex !important;
-  }
-  .nav-cta--menu {
-    display: none !important;
   }
 }
 
 @media (max-width: 899px) {
-  .nav-cta--desktop {
-    display: none !important;
-  }
-  .nav-links.open .nav-cta--menu {
+  .header .nav-links.open .nav-cta--menu {
     display: inline-flex !important;
     width: 100%;
     margin-top: var(--space-xs);
