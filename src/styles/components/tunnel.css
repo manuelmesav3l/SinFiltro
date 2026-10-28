@@ -1,0 +1,146 @@
+/* =====================================================
+   TUNNEL TRANSITION — Sin Filtro
+   Hero Sticky de fondo + Flujo de información continuo y completo
+   ===================================================== */
+
+/* Hero Sticky en el fondo mientras las tarjetas suben sobre él */
+.hero {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
+  height: 100vh !important;
+  min-height: 600px;
+  display: flex !important;
+  align-items: center !important;
+  background: #000;
+  overflow: hidden;
+  padding-top: var(--header-h);
+}
+
+/* Cobertura de plano superior: TODAS las secciones de información son visibles */
+.filosofia-acuerdos,
+.por-que-diferente,
+.about,
+.services,
+.cta-hero-banner,
+.faq,
+.footer {
+  position: relative !important;
+  z-index: 2 !important;
+  background-color: var(--bg-dark-0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Sección Filosofía (primera sección tras el hero) */
+.filosofia-acuerdos {
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 5rem 0 !important;
+  box-shadow:
+    0 -30px 80px rgba(0, 0, 0, 0.95),
+    0 -2px 20px rgba(230, 38, 70, 0.4),
+    inset 0 1px 0 rgba(255, 77, 109, 0.35) !important;
+}
+
+.filosofia-acuerdos .container {
+  width: 100%;
+}
+
+/* Accesibilidad y reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    position: relative !important;
+  }
+  .filosofia-acuerdos {
+    position: relative !important;
+    clip-path: none !important;
+  }
+}
+
+/* =====================================================
+   TRANSICIÓN CIRCULAR — el Hero queda fijo y un círculo lo cubre
+   revelando "Nuestra filosofía" completa (título + tarjetas + CTA)
+   ===================================================== */
+
+/* Base (sin JS, movimiento reducido o pantallas donde la sección no cabe en una
+   vista): la sección fluye normal bajo el Hero fijo, sin círculo. */
+.circle-transition {
+  --hero-h: max(100vh, 600px);
+  --reveal: 0; /* 0 → 1, lo escribe tunnel.js */
+  --reveal-r: calc(var(--reveal) * 74vmax); /* 74vmax cubre la diagonal en cualquier viewport */
+  position: relative;
+  z-index: 2;
+}
+
+.circle-transition__disc {
+  background: var(--bg-dark-1);
+}
+
+.circle-transition__ring {
+  display: none;
+}
+
+/* La sección ocupa exactamente una vista; el título y las tarjetas viajan juntos */
+.circle-transition .filosofia-acuerdos.tab-card {
+  margin-top: 0; /* en móvil .tab-card sube 1.5rem y taparía "Desliza para explorar" */
+  border-radius: 0;
+  min-height: var(--hero-h);
+  justify-content: center !important;
+  padding: calc(var(--header-h) + 0.75rem) 0 2rem !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* Versión animada: recorrido de scroll solapado sobre el Hero (margen negativo =
+   alto del Hero) para que el círculo empiece a crecer desde el primer scroll.
+   El ::after es el tramo en que la sección completa se queda fija (un padding no
+   serviría: el sticky se limita al área de contenido del contenedor). */
+.circle-transition.is-ready {
+  margin-top: calc(-1 * var(--hero-h));
+  pointer-events: none; /* deja pasar los clics al Hero fuera del círculo */
+}
+
+.circle-transition.is-ready::after {
+  content: '';
+  display: block;
+  height: 80vh;
+}
+
+.circle-transition.is-ready .circle-transition__stage {
+  position: sticky;
+  top: 0;
+  height: var(--hero-h);
+  overflow: hidden;
+}
+
+/* El recorte con clip-path también limita los clics: solo se interactúa dentro del círculo */
+.circle-transition.is-ready .circle-transition__disc {
+  height: 100%;
+  pointer-events: auto;
+  clip-path: circle(var(--reveal-r) at 50% 50%);
+  will-change: clip-path;
+}
+
+/* Círculo completo: se retira el recorte (se ve idéntico y no recorta nada) */
+.circle-transition.is-ready.is-revealed .circle-transition__disc {
+  clip-path: none;
+  will-change: auto;
+}
+
+/* Borde luminoso que acompaña el filo del círculo */
+.circle-transition.is-ready .circle-transition__ring {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent calc(var(--reveal-r) - 18px),
+    rgba(255, 77, 109, 0.55) calc(var(--reveal-r) - 2px),
+    transparent calc(var(--reveal-r) + 22px)
+  );
+  opacity: min(1, calc(var(--reveal) * 14));
+  pointer-events: none;
+}

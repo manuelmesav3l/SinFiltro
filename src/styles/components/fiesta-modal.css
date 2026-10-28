@@ -1,0 +1,387 @@
+/* =====================================================
+   MODAL — Segunda Fiesta Sin Filtro
+   Foto a la izquierda, contenido con scroll a la derecha (una columna en móvil).
+   Contenido tomado de la invitación en PDF: experiencia, precios, lugar y cómo confirmar.
+   ===================================================== */
+
+/* Botones de la tarjeta de la fiesta: acción principal + detalles */
+.encuentro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.encuentro-actions .encuentro-cta-btn,
+.fiesta-actions .encuentro-cta-btn {
+  flex: 1 1 200px;
+  width: auto;
+  margin-top: 0;
+}
+
+/* ── Contenedor del modal ── */
+.modal-content-fiesta {
+  max-width: 1040px !important;
+  width: 94% !important;
+  padding: 0 !important;
+  max-height: 90vh;
+  overflow: hidden;
+  text-align: left;
+  border-radius: 24px !important;
+}
+
+.modal-content-fiesta .modal-close {
+  z-index: 5;
+  background: rgba(7, 2, 13, 0.7);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-content-fiesta .modal-close:hover {
+  background: rgba(240, 40, 154, 0.5);
+}
+
+.fiesta-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.75fr) 1.7fr;
+  max-height: 90vh;
+}
+
+.fiesta-photo {
+  position: relative;
+  min-height: 100%;
+}
+
+.fiesta-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+/* La foto se funde hacia el contenido */
+.fiesta-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(22, 8, 41, 0) 55%, var(--bg-dark-card) 100%);
+}
+
+.fiesta-scroll {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem 2.25rem 2.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(240, 40, 154, 0.5) transparent;
+}
+
+/* ── Cabecera ── */
+.fiesta-head .modal-eyebrow {
+  color: var(--color-pink);
+  letter-spacing: 0.14em;
+  max-width: calc(100% - 2.5rem); /* no pisa el botón de cerrar */
+}
+
+.fiesta-head h3 {
+  margin: 0.2rem 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  line-height: 1.1;
+  color: #ffffff !important;
+}
+
+.fiesta-when {
+  margin: 0 0 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-red-glow);
+}
+
+.fiesta-lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e6dcf0;
+}
+
+.fiesta-lead strong {
+  color: #ffffff;
+}
+
+.fiesta-accent {
+  color: var(--color-pink) !important;
+  font-weight: 700;
+}
+
+/* ── Secciones ── */
+/* Los <section>/<header> heredan relleno y fondo globales de la página: aquí se anulan */
+.fiesta-head,
+.fiesta-section {
+  background: transparent !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.fiesta-head {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.fiesta-section {
+  margin-top: 1.9rem;
+  padding-top: 1.75rem;
+  padding-bottom: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.fiesta-h {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.fiesta-sub {
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cfc4db;
+}
+
+.fiesta-sub strong {
+  color: #ffffff;
+}
+
+/* Pilares */
+.fiesta-pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.fiesta-pillars li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #bfb3cc;
+}
+
+.fiesta-pillars strong {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.fiesta-pillar__icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: var(--color-pink);
+  background: rgba(240, 40, 154, 0.12);
+  border: 1px solid rgba(240, 40, 154, 0.3);
+}
+
+/* Entradas */
+.fiesta-tickets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.fiesta-ticket {
+  padding: 1.25rem 1.3rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(240, 40, 154, 0.45);
+  color: #e6dcf0;
+}
+
+.fiesta-ticket--featured {
+  background: linear-gradient(145deg, #f0289a 0%, #e62646 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(240, 40, 154, 0.35);
+}
+
+.fiesta-ticket__name {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-pink);
+}
+
+.fiesta-ticket--featured .fiesta-ticket__name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fiesta-ticket__price {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.fiesta-ticket__price span {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.fiesta-ticket ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.fiesta-ticket li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.fiesta-ticket li svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+}
+
+.fiesta-note {
+  margin: 0.8rem 0 0;
+  font-size: 0.8rem;
+  color: #a99bb8;
+}
+
+/* Lugar */
+.fiesta-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0 0 0.85rem;
+  font-style: normal;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.fiesta-address svg {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+  color: var(--color-pink);
+}
+
+.fiesta-address strong {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+}
+
+/* Pasos para confirmar */
+.fiesta-steps {
+  list-style: none;
+  counter-reset: paso;
+  margin: 0 0 1.4rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.fiesta-steps li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 2.6rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: #cfc4db;
+}
+
+.fiesta-steps li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f0289a, #e62646);
+}
+
+.fiesta-steps strong {
+  color: #ffffff;
+}
+
+.fiesta-steps a {
+  color: var(--color-pink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fiesta-steps a:hover,
+.fiesta-steps a:focus-visible {
+  color: #ffffff;
+}
+
+.fiesta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── Móvil / tablet: una columna, foto como banda superior y scroll del modal entero ── */
+@media (max-width: 820px) {
+  .modal-content-fiesta {
+    overflow-y: auto;
+  }
+
+  .fiesta-layout {
+    display: block;
+    max-height: none;
+  }
+
+  .fiesta-photo {
+    height: 170px;
+    min-height: 0;
+  }
+
+  .fiesta-photo img {
+    object-position: center 60%;
+  }
+
+  .fiesta-photo::after {
+    background: linear-gradient(to bottom, rgba(22, 8, 41, 0) 40%, var(--bg-dark-card) 100%);
+  }
+
+  .fiesta-scroll {
+    max-height: none;
+    overflow: visible;
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .fiesta-tickets {
+    grid-template-columns: 1fr;
+  }
+}

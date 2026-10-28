@@ -1,0 +1,208 @@
+/* =====================================================
+   "VIVE LA EXPERIENCIA" — rediseño móvil y tablet
+   Sección de pestañas (Encuentros · Podcast · Próximamente) con sus subnavegaciones.
+
+   Problemas que resuelve: las 3 pestañas principales salían cortadas a ambos lados
+   (había que adivinar que se deslizaban), la subnavegación del podcast quedaba a medias,
+   y el espacio vertical entre bloques era excesivo para una pantalla de teléfono.
+   Criterio: lo que tiene 2–3 opciones se ve COMPLETO (cuadrícula); solo lo que tiene
+   4+ opciones se desliza, y avisa con un desvanecido en el borde.
+   ===================================================== */
+
+@media (max-width: 767px) {
+  /* ── Encabezado de la sección ── */
+  .por-que-diferente {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .por-que-title {
+    font-size: clamp(1.7rem, 7.4vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .por-que-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .stepper-folder-wrapper {
+    margin: 1.5rem auto 2rem;
+  }
+
+  /* ── Pestañas principales: 3 columnas, todas visibles, sin deslizar ── */
+  .stepper-folder-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: stretch;
+    overflow: visible;
+    padding: 0.25rem 0 1rem;
+    scroll-snap-type: none;
+  }
+
+  .stepper-tab-btn {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    padding: 0.8rem 0.35rem 0.7rem;
+    border-radius: 16px;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    transform: none !important; /* sin el "levantado" que las recortaba */
+  }
+
+  .stepper-tab-btn .tab-badge {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    transform: none !important;
+  }
+
+  .stepper-tab-btn .tab-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .stepper-tab-btn .tab-title {
+    font-size: 0.78rem;
+    line-height: 1.2;
+    overflow-wrap: normal; /* nunca partir "Próximamente" en mitad de palabra */
+    hyphens: none;
+  }
+
+  /* El activo se distingue por borde rosa y fondo; no por tamaño */
+  .stepper-tab-btn.active {
+    border-color: rgba(240, 40, 154, 0.7) !important;
+    box-shadow: 0 8px 22px rgba(240, 40, 154, 0.22) !important;
+  }
+
+  /* ── Tarjeta contenedora ── */
+  /* Sin tarjeta de fondo (ver encuentros.css): el contenido usa el ancho de la página */
+
+  .card-intro-desc {
+    margin-bottom: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── Subnavegación del podcast: 2 opciones = 2 columnas completas ── */
+  .podcast-category-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin: 0.5rem 0 1rem;
+    overflow: visible;
+  }
+
+  .podcast-category-btn {
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.45rem 0.6rem;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  /* ── Formatos de encuentros (4 opciones): se deslizan, con desvanecido que lo anuncia ── */
+  .encuentros-formatos-list {
+    margin-inline: calc(-1 * var(--space-md)); /* la tira llega al borde de la pantalla */
+    padding-inline: var(--space-md);
+    scroll-padding-inline: var(--space-md);
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 2.2rem), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 1rem, #000 calc(100% - 2.2rem), transparent 100%);
+  }
+
+  .encuentros-formatos-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .formato-card {
+    min-height: 48px;
+  }
+
+  /* ── Detalle del encuentro ── */
+  .format-panel {
+    padding: 1.15rem 1rem 1.25rem;
+  }
+
+  .encuentro-card-top {
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .encuentro-card-title {
+    font-size: 1.45rem;
+  }
+
+  .encuentro-card-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Botones: apilados y a todo el ancho (más fáciles de tocar con el pulgar) */
+  .encuentro-actions,
+  .fiesta-actions {
+    flex-direction: column;
+  }
+
+  .encuentro-actions .encuentro-cta-btn,
+  .fiesta-actions .encuentro-cta-btn {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .encuentro-meta-list {
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .meta-pill {
+    font-size: 0.8rem;
+  }
+
+  /* Mapa: más alto en proporción para poder usarlo con el dedo */
+  .encuentro-map {
+    height: 200px;
+  }
+}
+
+/* Teléfonos estrechos (≤400px): se compacta un punto más para que "Próximamente" quepa entera */
+@media (max-width: 400px) {
+  .stepper-tab-btn {
+    padding-inline: 0.15rem;
+  }
+
+  .stepper-tab-btn .tab-title {
+    font-size: 0.72rem;
+    letter-spacing: -0.01em;
+  }
+
+  .podcast-category-btn svg {
+    display: none; /* el ícono sobra: el texto y el contador bastan */
+  }
+
+  .podcast-category-count {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .stepper-tab-btn .tab-badge {
+    width: 36px;
+    height: 36px;
+  }
+
+}
+
+/* ── Tablet (768–899px): las pestañas principales y el detalle respiran sin llegar al layout de escritorio ── */
+@media (min-width: 768px) and (max-width: 899px) {
+  .stepper-folder-tabs {
+    gap: 0.75rem;
+  }
+
+  .stepper-tab-btn {
+    min-width: 150px;
+  }
+}

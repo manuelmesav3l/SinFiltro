@@ -1,0 +1,215 @@
+/* =====================================================
+   PORTAL — 3D Canvas Window & Scroll Transition (Cinematic)
+   ===================================================== */
+
+/* Contenedor de scroll con pista para la transición del portal */
+.hero-scroll-track {
+  position: relative;
+  min-height: 180vh;
+}
+
+.hero-scroll-track .hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Canvas del portal fijo a pantalla completa */
+.portal-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Envoltura del portal dentro del hero */
+.portal-wrap {
+  position: relative;
+  z-index: 6;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portal-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  transition: opacity 0.3s ease;
+}
+
+.portal-heading strong {
+  font-size: 0.92rem;
+  color: var(--color-red-glow);
+  font-weight: 700;
+}
+
+/* Botón y anclaje físico del portal */
+.portal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(290px, 75vw);
+  aspect-ratio: 320 / 350;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 90px;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.portal:hover {
+  transform: scale(1.02);
+}
+
+/* El elemento de video real es invisible: actúa como fuente de píxeles para el canvas */
+.portal video {
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Píldora interactiva indicadora de scroll / click */
+.portal-cue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 4, 24, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 38, 70, 0.4);
+  border-radius: 999px;
+  padding: 0.45rem 1.15rem;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(230, 38, 70, 0.25);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.portal:hover .portal-cue {
+  background: rgba(26, 7, 42, 0.88);
+  border-color: rgba(255, 77, 109, 0.7);
+  box-shadow: 0 6px 30px rgba(230, 38, 70, 0.4), 0 0 20px rgba(255, 77, 109, 0.4);
+  transform: translateY(-2px);
+}
+
+.portal-cue-orbit {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-red-glow);
+  box-shadow: 0 0 10px var(--color-red-glow);
+  animation: pulsePortalCue 1.8s infinite alternate;
+}
+
+@keyframes pulsePortalCue {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 1;
+    box-shadow: 0 0 16px var(--color-red-glow);
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-center {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    align-items: center !important;
+    gap: 3.5rem !important;
+    text-align: left !important;
+    max-width: 1240px !important;
+    padding-top: calc(var(--header-h) + 1.5rem) !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .hero-copy {
+    text-align: left !important;
+    max-width: 640px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 4.2vw, 4.3rem) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .hero-subtitle {
+    margin: 0 0 1.25rem 0 !important;
+  }
+
+  .hero-quote {
+    margin: 0 0 1.5rem 0 !important;
+    text-align: left !important;
+  }
+
+  .hero-badge {
+    margin-top: 0.5rem !important;
+  }
+
+  .portal-wrap {
+    margin-top: 0 !important;
+    justify-self: center !important;
+  }
+
+  .portal {
+    width: 310px !important;
+    aspect-ratio: 320 / 360 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-scroll-track {
+    min-height: 150vh;
+  }
+
+  .portal {
+    width: min(240px, 68vw);
+    aspect-ratio: 300 / 330;
+    border-radius: 70px;
+  }
+
+  .portal-cue {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-track {
+    min-height: 100vh;
+  }
+
+  .portal-canvas {
+    display: none !important;
+  }
+
+  .portal-cue-orbit {
+    animation: none;
+  }
+}

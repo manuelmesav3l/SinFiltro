@@ -1,0 +1,594 @@
+/* =====================================================
+   EXPLORA — Sección "Explora el universo"
+   Podcast Descualquierados + Encuentros Sin Filtro
+   ===================================================== */
+
+.explora {
+  background: #faf5fb;
+  overflow: hidden;
+}
+
+/* ── Tabs / Sub-secciones ── */
+.explora-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: var(--space-lg);
+  border-bottom: 2px solid rgba(55, 18, 96, 0.1);
+  padding-bottom: 0;
+}
+
+.explora-tab-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-gray);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color var(--transition-base), border-color var(--transition-base);
+  letter-spacing: 0.02em;
+}
+
+.explora-tab-btn:hover {
+  color: var(--color-purple);
+}
+
+.explora-tab-btn.active {
+  color: var(--color-magenta);
+  border-bottom-color: var(--color-magenta);
+}
+
+.explora-panel {
+  display: none;
+}
+
+.explora-panel.active {
+  display: block;
+}
+
+/* ════════════════════════════════════════════
+   PODCAST — Descualquierados
+   ════════════════════════════════════════════ */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.podcast-main {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  padding: var(--space-md);
+  box-shadow: 0 4px 24px rgba(55, 18, 96, 0.06);
+}
+
+.podcast-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-sm);
+}
+
+.podcast-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.podcast-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.podcast-logo-row h3 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.podcast-logo-row span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-gray);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+.podcast-desc {
+  color: var(--color-gray);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.podcast-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Sub-tabs de categorías del Podcast ── */
+.podcast-category-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+  padding: 0.3rem;
+  background: rgba(55, 18, 96, 0.05);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.podcast-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.podcast-category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #6a6275;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  outline: none;
+}
+
+.podcast-category-btn:focus-visible {
+  outline: 2px solid var(--color-magenta);
+  outline-offset: 2px;
+}
+
+.podcast-category-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.podcast-category-btn:hover {
+  color: var(--color-deep-purple);
+  background: rgba(186, 0, 124, 0.08);
+}
+
+.podcast-category-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.podcast-category-btn.active {
+  background: linear-gradient(135deg, #ba007c 0%, #371260 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(186, 0, 124, 0.3);
+}
+
+.podcast-category-btn.active svg {
+  fill: #ffffff;
+}
+
+.podcast-category-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+  margin-left: 0.2rem;
+  line-height: 1.2;
+}
+
+.podcast-category-btn:not(.active) .podcast-category-count {
+  background: rgba(55, 18, 96, 0.08);
+  color: #554e5e;
+}
+
+/* ── YouTube player real ── */
+.youtube-player-wrap {
+  position: relative;
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-bottom: var(--space-sm);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.youtube-player-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── Playlist de episodios ── */
+.yt-playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(186, 0, 124, 0.3) transparent;
+  padding-right: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+.yt-playlist::-webkit-scrollbar {
+  width: 4px;
+}
+.yt-playlist::-webkit-scrollbar-track { background: transparent; }
+.yt-playlist::-webkit-scrollbar-thumb {
+  background: rgba(186, 0, 124, 0.35);
+  border-radius: 999px;
+}
+
+/* Episodio */
+.yt-ep {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1.5px solid rgba(55, 18, 96, 0.08);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background var(--transition-base), border-color var(--transition-base);
+  font-family: var(--font-sans);
+}
+
+.yt-ep:hover {
+  background: rgba(186, 0, 124, 0.05);
+  border-color: rgba(186, 0, 124, 0.2);
+}
+
+.yt-ep.active {
+  background: rgba(186, 0, 124, 0.08);
+  border-color: rgba(186, 0, 124, 0.35);
+}
+
+/* Thumbnail del episodio */
+.yt-ep img {
+  width: 96px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: #1a0535;
+}
+
+/* Info */
+.yt-ep-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.yt-ep-num {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-magenta);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.yt-ep-num--spotify {
+  color: #1db954 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.yt-ep-num--yt-colab {
+  color: #ff0033 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.yt-ep-title {
+  font-size: 0.83rem;
+  color: var(--color-purple);
+  font-weight: 500;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.yt-ep.active .yt-ep-title {
+  color: var(--color-magenta);
+  font-weight: 600;
+}
+
+/* Ícono play */
+.yt-ep-play {
+  font-size: 0.7rem;
+  color: rgba(55, 18, 96, 0.3);
+  flex-shrink: 0;
+  transition: color var(--transition-base);
+}
+
+.yt-ep:hover .yt-ep-play,
+.yt-ep.active .yt-ep-play {
+  color: var(--color-magenta);
+}
+
+/* ── Acciones del podcast ── */
+.podcast-action-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.podcast-action-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  padding: 1.25rem var(--space-sm);
+  box-shadow: 0 2px 12px rgba(55, 18, 96, 0.05);
+}
+
+.podcast-action-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-purple);
+}
+
+.podcast-action-card p {
+  font-size: 0.87rem;
+  color: var(--color-gray);
+  margin-bottom: 0.75rem;
+  line-height: 1.55;
+}
+
+.podcast-action-card .btn {
+  font-size: 0.86rem;
+  padding: 0.55rem 1.2rem;
+}
+
+/* ════════════════════════════════════════════
+   ENCUENTROS
+   ════════════════════════════════════════════ */
+.encuentros-intro {
+  max-width: 720px;
+  color: var(--color-gray);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: var(--space-lg);
+}
+
+.encuentros-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+/* ── Evento destacado ── */
+.evento-destacado {
+  background: var(--gradient-brand);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.evento-destacado::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  top: -100px;
+  right: -80px;
+  pointer-events: none;
+}
+
+.evento-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  padding: 0.3rem 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.evento-destacado h3 {
+  color: var(--color-white);
+  font-size: 1.7rem;
+  margin-bottom: 0.35rem;
+}
+
+.evento-fecha {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.evento-desc {
+  color: rgba(255,255,255,0.82);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-md);
+}
+
+.evento-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.4rem;
+}
+
+.evento-detail-icon {
+  font-size: 1rem;
+}
+
+.evento-destacado .btn {
+  margin-top: var(--space-sm);
+}
+
+/* ── Lista de próximos eventos ── */
+.proximos-eventos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.proximos-eventos h3 {
+  font-size: 1.1rem;
+  color: var(--color-purple);
+  margin-bottom: var(--space-xs);
+}
+
+.evento-item {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(55, 18, 96, 0.05);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.evento-item:hover {
+  border-color: var(--color-magenta);
+  box-shadow: 0 4px 20px rgba(186, 0, 124, 0.12);
+}
+
+.evento-item-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-purple);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.evento-item-fecha {
+  font-size: 0.82rem;
+  color: var(--color-magenta);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.evento-item-desc {
+  font-size: 0.87rem;
+  color: var(--color-gray);
+  line-height: 1.55;
+}
+
+/* ── Botón memorias ── */
+.encuentros-footer {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════
+   MODALES DE FORMULARIO (historia / tema / invitación)
+   ════════════════════════════════════════════ */
+.modal-form-group {
+  margin-bottom: 1.1rem;
+}
+
+.modal-form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.modal-form-group input,
+.modal-form-group textarea,
+.modal-form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(55, 18, 96, 0.15);
+  background: #faf5fb;
+  color: var(--color-purple);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-base);
+  outline: none;
+  resize: vertical;
+}
+
+.modal-form-group input:focus,
+.modal-form-group textarea:focus,
+.modal-form-group select:focus {
+  border-color: var(--color-magenta);
+  background: var(--color-white);
+}
+
+.modal-form-group textarea {
+  min-height: 90px;
+}
+
+.modal-form-footer {
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  margin-top: 0.75rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 899px) {
+  .podcast-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .encuentros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explora-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .explora-tab-btn {
+    white-space: nowrap;
+    padding: 0.65rem 1rem;
+  }
+}

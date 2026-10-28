@@ -1,0 +1,182 @@
+/* =====================================================
+   LEAD MAGNET — Formulario de registro / guía gratuita
+   ===================================================== */
+
+.lead-magnet {
+  background: var(--color-white);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-xl) 0;
+}
+
+.lead-magnet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 5% 50%, rgba(186,0,124,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 95% 30%, rgba(55,18,96,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.lead-magnet-halo {
+  display: none;
+}
+
+.lead-magnet-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+/* ── Copy ── */
+.lead-magnet-copy {
+  color: var(--color-gray);
+}
+
+.lead-magnet-copy .eyebrow {
+  color: var(--color-magenta);
+}
+
+.lead-magnet-copy h2 {
+  color: var(--color-purple);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.lead-magnet-copy p {
+  color: var(--color-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+.lead-magnet-benefits {
+  list-style: none;
+  margin-bottom: var(--space-md);
+}
+
+.lead-magnet-benefits li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--color-gray);
+  margin-bottom: 0.55rem;
+  font-size: 0.97rem;
+}
+
+.lead-magnet-benefits li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--color-magenta);
+  font-size: 0.7rem;
+  top: 0.3em;
+}
+
+/* ── Formulario ── */
+.lead-magnet-form-wrap {
+  background: #faf5fb;
+  border: 1px solid rgba(55, 18, 96, 0.12);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: 0 8px 40px rgba(55, 18, 96, 0.08);
+}
+
+.lead-magnet-form-wrap h3 {
+  color: var(--color-purple);
+  font-size: 1.3rem;
+  margin-bottom: 0.35rem;
+}
+
+.lead-magnet-form-wrap .form-subtitle {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Discount badge ── */
+.discount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(186, 0, 124, 0.08);
+  border: 1px solid rgba(186, 0, 124, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-magenta);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.03em;
+}
+
+/* ── Campos ── */
+.form-group {
+  margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(55, 18, 96, 0.15);
+  background: var(--color-white);
+  color: var(--color-purple);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: rgba(91, 91, 95, 0.5);
+}
+
+.form-group input:focus {
+  border-color: var(--color-magenta);
+  box-shadow: 0 0 0 3px rgba(186, 0, 124, 0.1);
+}
+
+.form-optional-label {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  margin-left: 0.4rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-privacy {
+  font-size: 0.78rem;
+  color: var(--color-gray);
+  margin-top: 0.75rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.lead-magnet-form-wrap .btn {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+/* ── Responsive ── */
+@media (max-width: 899px) {
+  .lead-magnet-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

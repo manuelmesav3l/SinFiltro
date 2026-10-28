@@ -1,0 +1,1309 @@
+/* =====================================================
+   DARK MODE — Sin Filtro (Concepto: Morbo, Seducción y Nocturno)
+   Paleta: Morados Oscuros, Rojos Carmesí, Vino de Borgoña y Obsidiana
+   ===================================================== */
+
+/* ── 1. Fondo Global y Superficies con Atmósfera Ambiental ── */
+body {
+  background-color: var(--bg-dark-0) !important;
+  color: var(--color-gray) !important;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(139, 16, 41, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 60% at 15% 75%, rgba(67, 16, 101, 0.15) 0%, transparent 65%) !important;
+  background-attachment: fixed;
+}
+
+/* ── 1.1 Cobertura Universal: Ninguna sección en blanco ── */
+html,
+main,
+section,
+article,
+header,
+footer,
+.hero,
+.filosofia-acuerdos,
+.por-que-diferente,
+.about,
+.services,
+.precios,
+.faq,
+.lead-magnet,
+.comunidades-testimonios,
+.arte-conectar,
+.explora,
+.acuerdos,
+.acuerdos-page,
+.acuerdos-hero,
+.acuerdos-content,
+.nosotros,
+.nosotros-page,
+.nos-hero,
+.nos-intro,
+.nos-values,
+.nos-team,
+.page-hero,
+.page-hero-centered,
+.tab-card {
+  background-color: var(--bg-dark-0) !important;
+  color: var(--color-gray) !important;
+}
+
+/* ── 1.2 Cobertura Universal: Ningún elemento oculto ni en blanco ── */
+.reveal,
+.reveal.in-view,
+.reveal.visible,
+.stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.card,
+.filosofia-pillar-card,
+.stepper-folder-card,
+.encuentro-destacado-card,
+.formato-card,
+.podcast-main,
+.encuentros-card,
+.yt-ep,
+.testimonios-card,
+.stats-banner,
+.stat-banner,
+.lead-magnet-card,
+.lead-magnet-box,
+.tarjeta-front,
+.tarjeta-back,
+.tarjeta-inner,
+.tarjeta-flip,
+.caja-herramientas,
+.recurso-card,
+.comentarios-card,
+.guia-card,
+.faq-item,
+.accordion-item,
+.nos-card,
+.nos-value-card,
+.team-member,
+.founder-card,
+.acuerdos-card,
+.acuerdos-bloque,
+.sesion-card,
+.tabla-comparativa,
+.tabla-comparativa tr,
+.tabla-comparativa td,
+.modal-card,
+.modal-content,
+.youtube-player-wrap {
+  background: var(--bg-dark-card) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(139, 16, 41, 0.1) !important;
+  color: var(--color-gray) !important;
+}
+
+.tarjeta-front,
+.tarjeta-back,
+.tarjeta-inner {
+  background: var(--bg-dark-card) !important;
+  color: #ffffff !important;
+}
+
+.filosofia-pill,
+.tab-badge,
+.meta-pill,
+.encuentro-date-badge {
+  background: rgba(22, 6, 38, 0.85) !important;
+  border: 1px solid rgba(230, 38, 70, 0.35) !important;
+  color: var(--color-red-glow) !important;
+}
+
+.caja-herramientas {
+  background: var(--bg-dark-card) !important;
+  border: 1px solid rgba(230, 38, 70, 0.25) !important;
+}
+
+/* ── 2. Tipografía Seductora & Glow "Morbo" ── */
+.text-morbo {
+  font-style: italic !important;
+  background: linear-gradient(135deg, #ff4d6d 0%, #ff1a40 45%, #d8b4fe 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 25px rgba(255, 43, 84, 0.4) !important;
+  font-weight: 700 !important;
+  display: inline-block !important;
+}
+
+/* ── 3. Pestañas Apiladas & Tab Cards (Efecto Hero Shrink) ── */
+.tab-card {
+  background: var(--bg-dark-1) !important;
+  position: relative;
+}
+
+#para-quien.tab-card,
+.nos-intro.tab-card,
+.filosofia-acuerdos.tab-card {
+  background: var(--bg-dark-1) !important;
+  box-shadow:
+    0 -25px 60px rgba(0, 0, 0, 0.95),
+    0 -2px 18px rgba(230, 38, 70, 0.38),
+    inset 0 1px 0 rgba(255, 77, 109, 0.3) !important;
+}
+
+/* Transición fluida de secciones continuas sobre el plano oscuro */
+.nos-intro.tab-card ~ section:not(.nos-filosofia):not(.nos-cta):not(.cta-hero-banner):not(.cta-final),
+.filosofia-acuerdos.tab-card ~ section:not(.cta-hero-banner):not(.cta-final),
+.filosofia-acuerdos.tab-card ~ footer {
+  background: var(--bg-dark-0) !important;
+}
+
+@media (max-width: 899px) {
+  .tab-card {
+    background: var(--bg-dark-1) !important;
+    box-shadow:
+      0 -14px 35px rgba(0, 0, 0, 0.8),
+      0 -2px 12px rgba(230, 38, 70, 0.3) !important;
+  }
+}
+
+/* ── 4. Header Scrolled en Dark Mode ── */
+.header.scrolled {
+  background: rgba(10, 3, 18, 0.92) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+.header.scrolled .nav-links a {
+  color: #f1ecf6 !important;
+}
+
+.header.scrolled .nav-links a:hover,
+.header.scrolled .nav-links a:focus-visible {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+
+.header.scrolled .logo-img--white {
+  filter: drop-shadow(0 0 12px rgba(230, 38, 70, 0.35));
+}
+
+@media (max-width: 899px) {
+  .nav-links {
+    background: rgba(12, 3, 22, 0.98) !important;
+    border: 1px solid rgba(230, 38, 70, 0.35) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9) !important;
+  }
+}
+
+/* ── 5. Citas rotatorias del Hero (Susurros Íntimos) ── */
+.hero-quote {
+  color: #f0e6f7 !important;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hero-quote span.active::before {
+  content: '“ ';
+  color: var(--color-red-glow);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+.hero-quote span.active::after {
+  content: ' ”';
+  color: var(--color-red-glow);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+/* ── 6. Filosofía Acuerdos (Tarjeta 1) ── */
+.filosofia-acuerdos {
+  background: var(--bg-dark-1) !important;
+  background-image: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(230, 38, 70, 0.1) 0%, transparent 70%) !important;
+}
+
+.filosofia-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 25px rgba(0, 0, 0, 0.6);
+}
+
+.filosofia-subtitle {
+  color: var(--color-gray) !important;
+}
+
+.filosofia-subtitle strong {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(216, 180, 254, 0.3);
+}
+
+.filosofia-pillar-card,
+.filosofia-acuerdos.tab-card .filosofia-pillar-card {
+  background: linear-gradient(150deg, rgba(28, 9, 48, 0.7) 0%, rgba(15, 4, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.25) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.18),
+    0 12px 35px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(139, 16, 41, 0.12) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  transition: all var(--transition-base);
+}
+
+.filosofia-pillar-card:hover,
+.filosofia-acuerdos.tab-card .filosofia-pillar-card:hover {
+  background: linear-gradient(150deg, rgba(42, 13, 72, 0.8) 0%, rgba(22, 6, 38, 0.98) 100%) !important;
+  border-color: rgba(255, 77, 109, 0.65) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 77, 109, 0.35),
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(230, 38, 70, 0.3) !important;
+  transform: translateY(-5px);
+}
+
+.filosofia-pillar-card::before {
+  background: linear-gradient(90deg, #ff4d6d 0%, #e62646 50%, #431065 100%) !important;
+}
+
+.pillar-card-icon-wrap {
+  background: linear-gradient(135deg, rgba(230, 38, 70, 0.22) 0%, rgba(67, 16, 101, 0.45) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.35) !important;
+  color: var(--color-red-glow) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.filosofia-pillar-card:hover .pillar-card-icon-wrap {
+  background: var(--gradient-brand) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 25px rgba(230, 38, 70, 0.5) !important;
+}
+
+.pillar-card-content h4 {
+  color: #ffffff !important;
+  font-size: 1.15rem;
+}
+
+.pillar-card-content p {
+  color: var(--color-gray) !important;
+}
+
+.pillar-num {
+  color: var(--color-red-glow) !important;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.45);
+}
+
+.filosofia-cta-desc {
+  color: #d0c4db !important;
+}
+
+.filosofia-cta-btn {
+  background: var(--gradient-brand) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 30px rgba(230, 38, 70, 0.4) !important;
+  border: 1px solid rgba(255, 77, 109, 0.3) !important;
+}
+
+.filosofia-cta-btn:hover {
+  background: linear-gradient(135deg, #ff4d6d 0%, #c71937 50%, #4d1075 100%) !important;
+  box-shadow: 0 12px 35px rgba(230, 38, 70, 0.6), 0 0 25px rgba(230, 38, 70, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* ── 7. Por qué es diferente / Stepper Folder / Encuentros Nocturnos ── */
+.por-que-diferente {
+  background: var(--bg-dark-0) !important;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 85% 30%, rgba(139, 16, 41, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 70%, rgba(67, 16, 101, 0.12) 0%, transparent 60%) !important;
+}
+
+.por-que-title {
+  color: #ffffff !important;
+}
+
+.por-que-subtitle {
+  color: var(--color-gray) !important;
+}
+
+.stepper-folder-card {
+  background: linear-gradient(150deg, rgba(24, 7, 42, 0.9) 0%, rgba(13, 3, 23, 0.98) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.2),
+    0 25px 70px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(139, 16, 41, 0.18) !important;
+}
+
+.stepper-tab-btn {
+  background: rgba(18, 5, 32, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.stepper-tab-btn:hover {
+  background: rgba(32, 10, 56, 0.85) !important;
+  border-color: rgba(230, 38, 70, 0.4) !important;
+}
+
+.stepper-tab-btn.active {
+  background: #19072e !important;
+  border-color: rgba(230, 38, 70, 0.55) !important;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(230, 38, 70, 0.25) !important;
+}
+
+.stepper-tab-btn .tab-badge {
+  background: #140525 !important;
+  border: 2px solid rgba(230, 38, 70, 0.3) !important;
+  color: #cfc4db !important;
+}
+
+.stepper-tab-btn.active .tab-badge {
+  background: var(--gradient-brand) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(230, 38, 70, 0.55) !important;
+}
+
+.stepper-tab-btn .tab-title {
+  color: #b8acc5 !important;
+}
+
+.stepper-tab-btn.active .tab-title {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.card-intro-desc {
+  color: #d6cbdc !important;
+}
+
+/* ── Panel Fiesta Erótico-Afectiva Sin Filtro ── */
+.encuentro-destacado-card {
+  background: linear-gradient(145deg, #220836 0%, #11021b 50%, #300619 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.35) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.25),
+    0 20px 50px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(139, 16, 41, 0.22) !important;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+}
+
+.encuentro-status-tag {
+  background: linear-gradient(135deg, #e62646 0%, #8b1029 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 0 15px rgba(230, 38, 70, 0.5) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.encuentro-date-badge {
+  background: rgba(14, 3, 24, 0.85) !important;
+  border: 1px solid rgba(230, 38, 70, 0.45) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.encuentro-date-num {
+  color: var(--color-red-glow) !important;
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
+}
+
+.encuentro-date-month {
+  color: #cfc4db !important;
+}
+
+.encuentro-card-title {
+  color: #ffffff !important;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.encuentro-card-desc {
+  color: var(--color-gray) !important;
+  line-height: 1.7;
+}
+
+.encuentro-card-desc small {
+  color: #9d8ea8 !important;
+}
+
+.meta-pill {
+  background: rgba(22, 6, 38, 0.85) !important;
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  color: #f1ecf6 !important;
+}
+
+.encuentro-cta-btn {
+  background: linear-gradient(135deg, #ff4d6d 0%, #c71937 50%, #4d1075 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 30px rgba(230, 38, 70, 0.5), 0 0 25px rgba(230, 38, 70, 0.35) !important;
+  margin-top: 1.5rem;
+}
+
+.encuentro-cta-btn:hover {
+  background: linear-gradient(135deg, #ff6b8b 0%, #e62646 50%, #68159d 100%) !important;
+  box-shadow: 0 12px 40px rgba(230, 38, 70, 0.7), 0 0 35px rgba(230, 38, 70, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Formatos List (Encuentros) ── */
+.formato-card {
+  background: rgba(18, 5, 32, 0.7) !important;
+  border: 1px solid rgba(230, 38, 70, 0.2) !important;
+  transition: all var(--transition-base);
+}
+
+.formato-card:hover {
+  background: rgba(32, 10, 56, 0.85) !important;
+  border-color: rgba(255, 77, 109, 0.45) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.formato-card.active {
+  background: linear-gradient(135deg, rgba(40, 12, 68, 0.8) 0%, rgba(20, 5, 35, 0.95) 100%) !important;
+  border-color: rgba(255, 77, 109, 0.6) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(230, 38, 70, 0.25) !important;
+}
+
+.formato-icon-box {
+  background: rgba(230, 38, 70, 0.18) !important;
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  color: var(--color-red-glow) !important;
+}
+
+.formato-card.active .formato-icon-box {
+  background: var(--gradient-brand) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(230, 38, 70, 0.4);
+}
+
+.formato-title {
+  color: #ffffff !important;
+}
+
+.formato-desc {
+  color: #b8acc5 !important;
+}
+
+/* ── Panel Podcast & Video Player ── */
+.podcast-category-nav {
+  border-bottom: 1px solid rgba(230, 38, 70, 0.25) !important;
+}
+
+.podcast-category-btn {
+  color: #b8acc5 !important;
+  background: transparent !important;
+}
+
+.podcast-category-btn:hover {
+  color: #ffffff !important;
+}
+
+.podcast-category-btn.active {
+  color: var(--color-red-glow) !important;
+  border-bottom-color: var(--color-red-glow) !important;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+}
+
+.podcast-category-count {
+  background: rgba(230, 38, 70, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.youtube-player-wrap {
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(230, 38, 70, 0.2) !important;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000000;
+}
+
+.yt-ep {
+  background: rgba(18, 5, 32, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all var(--transition-base);
+}
+
+.yt-ep:hover {
+  background: rgba(35, 11, 60, 0.85) !important;
+  border-color: rgba(230, 38, 70, 0.4) !important;
+}
+
+.yt-ep.active {
+  background: linear-gradient(135deg, rgba(46, 14, 76, 0.85) 0%, rgba(26, 7, 45, 0.95) 100%) !important;
+  border-color: rgba(255, 77, 109, 0.6) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(230, 38, 70, 0.25) !important;
+}
+
+.yt-ep-num {
+  color: var(--color-red-glow) !important;
+  font-weight: 700;
+}
+
+.yt-ep-title {
+  color: #f1ecf6 !important;
+}
+
+.yt-ep-play {
+  color: var(--color-red-glow) !important;
+}
+
+.card-footer-row {
+  border-top: 1px solid rgba(230, 38, 70, 0.2) !important;
+}
+
+/* ── 8. Sección Sobre Nosotros (Vale & JuanPa) ── */
+.about {
+  background: var(--bg-dark-1) !important;
+  background-image: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(139, 16, 41, 0.12) 0%, transparent 65%) !important;
+}
+
+.about-visual {
+  background: linear-gradient(160deg, #200835 0%, #3a0824 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.35) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.25),
+    0 20px 50px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(139, 16, 41, 0.25) !important;
+  position: relative;
+}
+
+.about-visual::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle at 50% 50%, rgba(230, 38, 70, 0.2) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about-visual-label {
+  background: rgba(14, 3, 24, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(230, 38, 70, 0.45) !important;
+  color: var(--color-red-glow) !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(230, 38, 70, 0.3) !important;
+}
+
+.about-copy h2 {
+  color: #ffffff !important;
+}
+
+.about-copy h3 {
+  color: #ffffff !important;
+  font-family: var(--font-serif);
+}
+
+.about-copy p {
+  color: var(--color-gray) !important;
+  line-height: 1.7;
+}
+
+/* ── 9. Sección Servicios y Precios (VIP Black Cards) ── */
+.services {
+  background: var(--bg-dark-0) !important;
+  background-image: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(139, 16, 41, 0.15) 0%, transparent 70%) !important;
+}
+
+.card {
+  background: linear-gradient(150deg, rgba(25, 8, 44, 0.8) 0%, rgba(12, 3, 22, 0.96) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.15),
+    0 14px 40px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(139, 16, 41, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(150deg, rgba(38, 12, 65, 0.85) 0%, rgba(18, 5, 32, 0.98) 100%) !important;
+  border-color: rgba(255, 77, 109, 0.6) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 77, 109, 0.3),
+    0 22px 55px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(230, 38, 70, 0.3) !important;
+}
+
+/* Tarjeta 03: Experiencia VIP Black Pass */
+.card-featured {
+  background: linear-gradient(150deg, #240a3e 0%, #150426 50%, #30061c 100%) !important;
+  border: 1.5px solid rgba(255, 77, 109, 0.6) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 77, 109, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.85),
+    0 0 45px rgba(230, 38, 70, 0.35) !important;
+  animation: morboGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes morboGlow {
+  0% {
+    box-shadow:
+      inset 0 1px 2px rgba(255, 77, 109, 0.3),
+      0 20px 50px rgba(0, 0, 0, 0.8),
+      0 0 35px rgba(230, 38, 70, 0.25);
+  }
+  100% {
+    box-shadow:
+      inset 0 1px 2px rgba(255, 77, 109, 0.5),
+      0 25px 65px rgba(0, 0, 0, 0.9),
+      0 0 55px rgba(230, 38, 70, 0.45);
+  }
+}
+
+.card-badge {
+  background: linear-gradient(135deg, #ff4d6d 0%, #e62646 50%, #73091e 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(230, 38, 70, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.precio-n {
+  color: var(--color-red-glow) !important;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+}
+
+.precio-ses {
+  color: #b8acc5 !important;
+}
+
+.precio-nombre {
+  color: #ffffff !important;
+  font-family: var(--font-serif);
+}
+
+.precio-amount {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.precio-cop {
+  color: #a89bb8 !important;
+}
+
+.precio-list li {
+  color: var(--color-gray) !important;
+}
+
+.precio-list li::before {
+  color: var(--color-red-glow) !important;
+}
+
+/* ── 10. CTA Hero Banner ("¿Listos para conversar sin filtros?") ── */
+.cta-hero-banner {
+  background: linear-gradient(135deg, #150320 0%, #2e053f 35%, #6a0928 75%, #a61031 100%) !important;
+  border-top: 1px solid rgba(230, 38, 70, 0.45) !important;
+  border-bottom: 1px solid rgba(230, 38, 70, 0.45) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 77, 109, 0.3),
+    0 25px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(230, 38, 70, 0.3) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-hero-overlay {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 77, 109, 0.18) 0%, transparent 70%) !important;
+}
+
+.cta-hero-title {
+  color: #ffffff !important;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+.cta-eyebrow-pill {
+  background: rgba(14, 3, 24, 0.75) !important;
+  border: 1px solid rgba(255, 77, 109, 0.45) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(230, 38, 70, 0.3) !important;
+}
+
+.cta-heart {
+  color: rgba(255, 77, 109, 0.35) !important;
+  filter: drop-shadow(0 0 8px rgba(230, 38, 70, 0.4));
+}
+
+.btn-white-pill {
+  background: linear-gradient(135deg, #e62646 0%, #99124e 50%, #2f0c4f 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(230, 38, 70, 0.45) !important;
+}
+
+.btn-white-pill:hover {
+  background: linear-gradient(135deg, #ff4d6d 0%, #c71937 50%, #4d1075 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow:
+    0 15px 45px rgba(230, 38, 70, 0.65),
+    0 0 40px rgba(230, 38, 70, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.btn-white-pill svg {
+  stroke: #ffffff !important;
+}
+
+/* ── 11. Testimonios y Estadísticas (Confidencias Íntimas) ── */
+.comunidades-testimonios {
+  background: var(--bg-dark-1) !important;
+  background-image: radial-gradient(ellipse 70% 50% at 80% 50%, rgba(67, 16, 101, 0.15) 0%, transparent 65%) !important;
+}
+
+.comunidades-title {
+  color: #ffffff !important;
+}
+
+.comunidades-subtitle {
+  color: var(--color-gray) !important;
+}
+
+.testimonios-card {
+  background: linear-gradient(150deg, rgba(25, 8, 44, 0.75) 0%, rgba(13, 3, 23, 0.95) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.15),
+    0 14px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.testimonios-card:hover {
+  background: linear-gradient(150deg, rgba(38, 12, 65, 0.85) 0%, rgba(18, 5, 32, 0.98) 100%) !important;
+  border-color: rgba(255, 77, 109, 0.55) !important;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 77, 109, 0.3),
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(230, 38, 70, 0.25) !important;
+}
+
+.testimonios-stars {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+}
+
+.testimonios-text {
+  color: #ded3e8 !important;
+  line-height: 1.7;
+}
+
+.testimonios-author {
+  color: var(--color-red-glow) !important;
+  font-weight: 600;
+}
+
+.testimonios-meta {
+  color: #9d8ea8 !important;
+}
+
+.stats-banner {
+  background: linear-gradient(145deg, #18082e 0%, #10031d 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.2),
+    0 18px 45px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(230, 38, 70, 0.15) !important;
+}
+
+.stat-number {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 25px rgba(230, 38, 70, 0.5);
+  font-weight: 800;
+}
+
+.stat-label {
+  color: #ffffff !important;
+}
+
+.stat-item:not(:last-child)::after {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ── 12. FAQ (Preguntas Frecuentes) ── */
+.faq {
+  background: var(--bg-dark-0) !important;
+}
+
+.faq .section-title {
+  color: #ffffff !important;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(230, 38, 70, 0.22) !important;
+}
+
+.accordion-trigger {
+  color: #ffffff !important;
+}
+
+.accordion-trigger:hover,
+.accordion-trigger:focus-visible {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+}
+
+.accordion-icon {
+  color: var(--color-red-glow) !important;
+  font-weight: 700;
+}
+
+.accordion-panel {
+  color: var(--color-gray) !important;
+}
+
+/* ── 13. Lead Magnet (Guía Gratuita) ── */
+.lead-magnet {
+  background: var(--bg-dark-1) !important;
+}
+
+.lead-magnet::before {
+  background:
+    radial-gradient(ellipse 50% 70% at 5% 50%, rgba(230, 38, 70, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 95% 30%, rgba(67, 16, 101, 0.28) 0%, transparent 60%) !important;
+}
+
+.lead-magnet-card,
+.lead-magnet-box {
+  background: linear-gradient(150deg, rgba(26, 8, 46, 0.85) 0%, rgba(13, 3, 23, 0.98) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.3) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.2),
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(139, 16, 41, 0.2) !important;
+}
+
+.lead-magnet-copy h2 {
+  color: #ffffff !important;
+}
+
+.lead-magnet-copy p {
+  color: var(--color-gray) !important;
+}
+
+.lead-magnet-input,
+input[type="text"],
+input[type="email"],
+textarea {
+  background: var(--bg-dark-input) !important;
+  border: 1px solid rgba(230, 38, 70, 0.28) !important;
+  color: #ffffff !important;
+}
+
+.lead-magnet-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--color-red-glow) !important;
+  box-shadow:
+    0 0 20px rgba(230, 38, 70, 0.45),
+    inset 0 1px 2px rgba(255, 77, 109, 0.2) !important;
+  outline: none !important;
+}
+
+.lead-magnet-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #8c7e9a !important;
+}
+
+/* ── 14. Botones Globales con Acabado Terciopelo y Resplandor ── */
+.btn-primary {
+  background: var(--gradient-brand) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 8px 30px rgba(230, 38, 70, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 77, 109, 0.3) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: linear-gradient(135deg, #ff4d6d 0%, #b81442 50%, #3e0e5c 100%) !important;
+  box-shadow:
+    0 12px 38px rgba(230, 38, 70, 0.65),
+    0 0 25px rgba(230, 38, 70, 0.4) !important;
+  border-color: rgba(255, 77, 109, 0.6) !important;
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background: #1c062e !important;
+  border: 1px solid rgba(230, 38, 70, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.btn-dark:hover,
+.btn-dark:focus-visible {
+  background: #300a4d !important;
+  border-color: rgba(255, 77, 109, 0.7) !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(230, 38, 70, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--color-red-glow) !important;
+  color: var(--color-red-glow) !important;
+  box-shadow: 0 0 20px rgba(230, 38, 70, 0.35) !important;
+}
+
+/* ── 15. Footer en Dark Mode ── */
+.footer {
+  background: #040106 !important;
+  color: #b8acc5 !important;
+  border-top: 1px solid rgba(230, 38, 70, 0.3) !important;
+}
+
+.footer h5 {
+  color: #ffffff !important;
+  letter-spacing: 0.1em;
+}
+
+.footer ul a {
+  color: #b8acc5 !important;
+  transition: color var(--transition-base);
+}
+
+.footer ul a:hover {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+}
+
+.social-row a {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.social-row a:hover {
+  background: var(--color-red) !important;
+  border-color: var(--color-red) !important;
+  box-shadow: 0 0 25px rgba(230, 38, 70, 0.5) !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #8c7e9a !important;
+}
+
+/* ── 16. Modales y Ventanas Emergentes ── */
+.modal-overlay {
+  background: rgba(4, 1, 8, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+.modal-card,
+.modal-content {
+  background: linear-gradient(150deg, #1b072f 0%, #10031d 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.4) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 77, 109, 0.25),
+    0 25px 70px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(139, 16, 41, 0.35) !important;
+  color: var(--color-gray) !important;
+}
+
+.modal-card h2,
+.modal-card h3 {
+  color: #ffffff !important;
+}
+
+.modal-close {
+  color: #ffffff !important;
+}
+
+.modal-close:hover {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
+}
+
+/* ── 17. Páginas Secundarias: Nosotros & Acuerdos ── */
+.nos-hero,
+.page-hero-centered {
+  background: #08020d !important;
+  border-bottom: 1px solid rgba(230, 38, 70, 0.25) !important;
+}
+
+.nos-intro,
+.nos-values,
+.nos-team {
+  background: var(--bg-dark-0) !important;
+}
+
+.nos-card,
+.nos-value-card,
+.team-member {
+  background: var(--bg-dark-card) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+}
+
+.acuerdos-page,
+.acuerdos-content {
+  background: var(--bg-dark-0) !important;
+}
+
+.page-hero,
+.acuerdos-hero {
+  background: #08020d !important;
+  border-bottom: 1px solid rgba(230, 38, 70, 0.3) !important;
+}
+
+.page-hero h1,
+.acuerdos-hero h1 {
+  color: #ffffff !important;
+}
+
+.page-hero .lead,
+.acuerdos-hero .lead {
+  color: var(--color-gray) !important;
+}
+
+.acuerdos-card,
+.acuerdos-bloque,
+.sesion-card {
+  background: var(--bg-dark-card) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55) !important;
+}
+
+.tabla-comparativa {
+  background: var(--bg-dark-card) !important;
+  border: 1px solid rgba(230, 38, 70, 0.28) !important;
+  color: var(--color-gray) !important;
+}
+
+.tabla-comparativa th {
+  background: #120422 !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid rgba(230, 38, 70, 0.35) !important;
+}
+
+.tabla-comparativa td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: var(--color-gray) !important;
+}
+
+/* ── 18. Eyebrow y Badges ── */
+.eyebrow,
+.eyebrow-magenta {
+  color: var(--color-red-glow) !important;
+  text-shadow: 0 0 15px rgba(230, 38, 70, 0.35);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.hero-badge {
+  background: rgba(28, 7, 46, 0.75) !important;
+  border: 1px solid rgba(240, 40, 154, 0.55) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(240, 40, 154, 0.25) !important;
+}
+
+/* ── 19. Selección de texto y Scrollbar Dark ── */
+::selection {
+  background: #e62646;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08020d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a0c4d;
+  border-radius: 5px;
+  border: 2px solid #08020d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e62646;
+}
+
+/* ═══════════════════════════════════════════════════
+   22. TRANSICIÓN HERO CON FOTO → CONTENIDO (Nosotros y Acuerdos)
+   Sin arco ni filo rojo: la foto se funde hacia el color de la sección siguiente.
+   ═══════════════════════════════════════════════════ */
+.nos-hero,
+.page-hero-centered {
+  border-bottom: none !important;
+}
+
+.nos-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(140px, 30%, 280px);
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 4, 23, 0) 0%,
+    rgba(13, 4, 23, 0.55) 45%,
+    var(--bg-dark-1) 100%
+  );
+  pointer-events: none;
+}
+
+.nos-intro.tab-card,
+#para-quien.tab-card {
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   23. AUDITORÍA DARK MODE — Cards y bloques que seguían en claro
+   En modo oscuro --color-purple es casi blanco (#f5eefc): ya no sirve como fondo.
+   Los !important vencen también los estilos en línea de acuerdos.html.
+   ═══════════════════════════════════════════════════ */
+
+/* Skip-link (visible solo al enfocar): rosa de marca con texto blanco */
+.skip-link {
+  background: var(--color-pink) !important;
+  color: #ffffff !important;
+}
+
+/* Botón oscuro y relleno de botones al hover: ya no parten de un lila claro */
+.btn-dark,
+.final-cta .btn:hover,
+.final-cta .btn:focus-visible {
+  background: var(--color-purple-mid) !important;
+  border-color: var(--color-purple-mid) !important;
+  color: #ffffff !important;
+}
+
+.sub-section--alt {
+  background: var(--bg-dark-1) !important;
+}
+
+.sub-section--dark {
+  background: var(--bg-dark-2) !important;
+}
+
+/* ── Home · panel "Encuentros" (contenedor blanco de la tarjeta oscura) ── */
+.stepper-panel {
+  background: transparent !important;
+}
+
+/* ── Cards oscuras (mismo lenguaje que .filosofia-pillar-card) ── */
+.acuerdos-info-card,
+.async-support-card,
+.incluye-item,
+.timeline-item[style],
+.perfil-card,
+.timeline-body {
+  background: linear-gradient(150deg, rgba(28, 9, 48, 0.7) 0%, rgba(15, 4, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(230, 38, 70, 0.22) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6) !important;
+}
+
+.acuerdos-info-card:hover,
+.async-support-card:hover,
+.incluye-item:hover,
+.perfil-card:hover,
+.timeline-item:hover .timeline-body {
+  border-color: rgba(255, 77, 109, 0.55) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 24px rgba(230, 38, 70, 0.2) !important;
+}
+
+/* Tarjeta destacada ("Al finalizar salen con"): morado profundo con brillo rosa */
+.acuerdos-info-card[style*='gradient'] {
+  background: linear-gradient(145deg, #3a0f5c 0%, #1a0630 100%) !important;
+  border-color: rgba(240, 40, 154, 0.4) !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(240, 40, 154, 0.18) !important;
+}
+
+/* Barras, avisos y píldoras internas */
+.format-callout-box,
+.timeline-item[style] .timeline-content > div {
+  background: rgba(240, 40, 154, 0.08) !important;
+  border-color: rgba(240, 40, 154, 0.3) !important;
+  color: var(--color-gray) !important;
+}
+
+.timeline-item[style] .timeline-content > div {
+  color: var(--color-red-glow) !important;
+}
+
+.timeline-item[style] .timeline-number {
+  color: rgba(240, 40, 154, 0.28) !important;
+}
+
+/* Textos de esas cards: legibles sobre fondo oscuro */
+.acuerdos-check-list-new li,
+.async-support-card p,
+.async-list li,
+.async-criterio-box {
+  color: var(--color-gray) !important;
+}
+
+.async-support-card h3,
+.acuerdos-info-card h3,
+.incluye-name {
+  color: #ffffff !important;
+}
+
+.acuerdos-check-list-new .chk-badge {
+  background: var(--color-pink) !important;
+  color: #ffffff !important;
+}
+
+.timeline-dot {
+  background: var(--bg-dark-card) !important;
+  border-color: rgba(240, 40, 154, 0.4) !important;
+}
+
+/* ── Acuerdos · cita de cierre ── */
+.cita-wrap {
+  background: var(--bg-dark-0) !important;
+}
+
+.cita-text {
+  color: #ffffff !important;
+}
+
+/* ── Nosotros · "Lo que nos mueve": morado profundo en vez de lila ── */
+.nos-filosofia {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240, 40, 154, 0.14) 0%, transparent 70%),
+    linear-gradient(160deg, var(--color-purple-dark) 0%, var(--bg-dark-1) 100%) !important;
+}
+
+.nos-historia,
+.nos-intro,
+.nos-values,
+.nos-team {
+  background: var(--bg-dark-0) !important;
+}

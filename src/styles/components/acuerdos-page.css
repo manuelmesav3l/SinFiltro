@@ -1,0 +1,672 @@
+/* =====================================================
+   ACUERDOS — Overrides y estilos exclusivos de la subpágina
+   (extraído del <style> inline de acuerdos.html)
+   ===================================================== */
+
+/* ── Overrides mínimos para sub-página ─────────── */
+/* El header utiliza el comportamiento dinámico unificado de header.css */
+
+/* ── Hero tipográfico ───────────────────────────── */
+.page-hero {
+  padding-top: calc(100px + 3rem);
+  padding-bottom: 3rem;
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(55, 18, 96, 0.08);
+}
+
+.page-hero .eyebrow {
+  margin-bottom: 1.25rem;
+}
+
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-purple);
+  margin-bottom: 1.25rem;
+  max-width: 680px;
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-hero .lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-gray);
+  max-width: 540px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* ── Imagen hero full-width ─────────────────────── */
+.hero-full-img {
+  width: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+/* ── Secciones internas ─────────────────────────── */
+.sub-section {
+  padding: 5rem 0;
+}
+
+.sub-section--alt {
+  background: #faf5fb;
+}
+
+.sub-section--dark {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+/* ── Para quién: grid 2 columnas ────────────────── */
+.para-quien-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .para-quien-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Usa el .acuerdos-check-list del home pero sin fondo */
+.sub-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.sub-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.97rem;
+  line-height: 1.55;
+  color: var(--color-ink, #1c1c1e);
+}
+
+.sub-check-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-magenta);
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Sesiones: cuadrícula tipo tabla ────────────── */
+.session-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .session-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.session-cell {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid rgba(55, 18, 96, 0.1);
+  border-bottom: 1px solid rgba(55, 18, 96, 0.1);
+  transition: background var(--transition-base);
+}
+
+.session-cell:nth-child(even) {
+  border-right: none;
+}
+
+.session-cell:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .session-cell {
+    border-right: none;
+  }
+
+  .session-cell:last-child {
+    border-bottom: none;
+  }
+
+  .session-cell:nth-last-child(2) {
+    border-bottom: 1px solid rgba(55, 18, 96, 0.1);
+  }
+}
+
+.session-cell:hover {
+  background: rgba(186, 0, 124, 0.03);
+}
+
+.session-n {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: rgba(55, 18, 96, 0.1);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.session-t {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  margin-bottom: 0.35rem;
+}
+
+.session-d {
+  font-size: 0.88rem;
+  color: var(--color-gray);
+  line-height: 1.65;
+}
+
+/* ── Nuevas Tarjetas 2 Columnas (Para quién / Al finalizar) ── */
+.acuerdos-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 840px) {
+  .acuerdos-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.acuerdos-info-card {
+  background: #fdfafc;
+  border: 1px solid rgba(186, 0, 124, 0.12);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 8px 30px rgba(55, 18, 96, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acuerdos-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(55, 18, 96, 0.08);
+}
+
+.acuerdos-info-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-purple);
+  margin-bottom: 1.5rem;
+  line-height: 1.35;
+}
+
+.acuerdos-check-list-new {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.acuerdos-check-list-new li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: #4a4552;
+}
+
+.acuerdos-check-list-new .chk-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Quote Banner ───────────────────────────────── */
+.quote-banner-magenta {
+  background: linear-gradient(135deg, #371260 0%, #c40083 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 2.75rem 2rem;
+  text-align: center;
+  margin: 3.5rem 0 2rem;
+  box-shadow: 0 15px 40px rgba(196, 0, 131, 0.2);
+}
+
+.quote-banner-magenta blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── Format Callout ────────────────────────────── */
+.format-callout-box {
+  background: #fdfafc;
+  border-left: 4px solid #c40083;
+  border-radius: 0 16px 16px 0;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+  color: #4a4552;
+  line-height: 1.65;
+}
+
+/* ── Acompañamiento Asincrónico ─────────────────── */
+.async-support-card {
+  background: #ffffff;
+  border: 1px solid rgba(186, 0, 124, 0.12);
+  border-left: 4px solid var(--color-magenta);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  margin-top: 3.5rem;
+  box-shadow: 0 10px 30px rgba(55, 18, 96, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.async-support-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(55, 18, 96, 0.08);
+}
+
+.async-support-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #371260;
+  margin-bottom: 0.85rem;
+}
+
+.async-support-card p {
+  font-size: 0.95rem;
+  color: #5d5766;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.async-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.async-list li {
+  font-size: 0.93rem;
+  color: #371260;
+  line-height: 1.6;
+}
+
+.async-criterio-box {
+  background: rgba(196, 0, 131, 0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #371260;
+  line-height: 1.6;
+}
+
+.double-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 640px) {
+  .double-img {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.double-img img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: 0 20px 40px rgba(55, 18, 96, 0.1);
+  display: block;
+}
+
+/* ── Incluye: grid de 3 ─────────────────────────── */
+.incluye-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 700px) {
+  .incluye-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.incluye-item {
+  background: #ffffff;
+  border: 1px solid rgba(186, 0, 124, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 15px rgba(55, 18, 96, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.incluye-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(55, 18, 96, 0.08);
+  border-color: rgba(196, 0, 131, 0.3);
+}
+
+.incluye-icon {
+  color: var(--color-magenta);
+  margin-bottom: 1rem;
+}
+
+.incluye-name {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  margin-bottom: 0.35rem;
+}
+
+.incluye-desc {
+  font-size: 0.88rem;
+  color: var(--color-gray);
+  line-height: 1.65;
+}
+
+/* ── Precios ────────────────────────────────────── */
+.precios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  align-items: stretch;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 700px) {
+  .precios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reutiliza .card del home */
+.precio-n {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--color-magenta);
+  margin-bottom: 0.25rem;
+}
+
+.precio-ses {
+  font-size: 0.78rem;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.6rem;
+}
+
+.precio-nombre {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+
+.precio-amount {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-purple);
+  margin-bottom: 1.25rem;
+}
+
+.precio-list {
+  list-style: none;
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.precio-list li {
+  font-size: 0.9rem;
+  color: var(--color-gray);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(55, 18, 96, 0.07);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.precio-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-magenta);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* ── Cita de cierre ─────────────────────────────── */
+.cita-wrap {
+  text-align: center;
+  padding: 5rem 0;
+  background: #faf5fb;
+}
+
+.cita-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-style: italic;
+  color: var(--color-purple);
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.55;
+}
+
+.cita-author {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  letter-spacing: 0.04em;
+}
+
+/* ── CTA final ──────────────────────────────────── */
+.cta-final {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 0;
+  background: var(--gradient-brand);
+}
+
+.cta-final .hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-final .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(55, 18, 96, 0.45) 0%, rgba(186, 0, 124, 0.3) 100%);
+  pointer-events: none;
+}
+
+.cta-final .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-final h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 840px) {
+  .hero-split-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-split-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-split-image img {
+    max-height: 400px !important;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+
+  .timeline-number {
+    text-align: left !important;
+  }
+}
+
+.cta-final p {
+  color: #ffffff !important;
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cta-final .btn-primary {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+/* ── Fade-in reveal ─────────────────────────────── */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible,
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger>* {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger.visible>* {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger.visible>*:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.stagger.visible>*:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.stagger.visible>*:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.stagger.visible>*:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.stagger.visible>*:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.stagger.visible>*:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+/* =====================================================
+   HERO CON FOTO — Acuerdos desde adentro
+   La sección es su propio contexto de apilamiento (isolation): así la foto y el velo
+   (z-index negativo) quedan por encima del fondo oscuro de la sección y no detrás de él.
+   ===================================================== */
+.page-hero-centered {
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: flex;
+  justify-content: center;
+  background: var(--bg-dark-0);
+}
+
+.hero-photo__img {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  filter: saturate(0.9) contrast(1.05);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+/* Velo: deja ver los rostros arriba y se funde con el color de la sección siguiente abajo */
+.hero-photo__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7, 2, 13, 0.45) 0%, rgba(7, 2, 13, 0.2) 30%, rgba(7, 2, 13, 0.75) 62%, var(--bg-dark-1) 100%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(230, 38, 70, 0.18) 0%, transparent 70%);
+}

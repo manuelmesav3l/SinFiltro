@@ -1,0 +1,155 @@
+/* =====================================================
+   BASE — Reset, tipografía global y utilidades
+   ===================================================== */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Scroll ── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+/* ── Body ── */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-gray);
+  background: var(--bg-dark-0);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Imágenes ── */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Headings ── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  color: var(--color-white);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+section {
+  position: relative;
+  padding: var(--space-xl) 0;
+}
+
+/* ── Tipografía de sección ── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.eyebrow.center {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: var(--space-sm);
+}
+
+.section-lead {
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--color-gray);
+  margin-bottom: var(--space-lg);
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Halo / Glow ── */
+.halo {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 38, 70, 0.45) 0%, rgba(139, 16, 41, 0.2) 50%, transparent 75%);
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulse 7s ease-in-out infinite;
+}
+
+.halo--purple {
+  background: radial-gradient(circle, rgba(120, 25, 180, 0.45) 0%, rgba(45, 12, 70, 0.25) 50%, transparent 75%);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.6;
+  }
+}
+
+/* ── Reveal on scroll ── */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Reduced motion overrides ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .halo {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

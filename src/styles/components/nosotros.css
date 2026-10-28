@@ -1,0 +1,587 @@
+/* =====================================================
+   NOSOTROS — Subpágina ¿Quiénes somos? & Nuestra historia
+   ===================================================== */
+
+/* ── Overrides para subpágina ── */
+/* El header utiliza el comportamiento dinámico unificado de header.css */
+
+/* ══════════════════════════════════════════════
+   HERO CON FOTO
+══════════════════════════════════════════════ */
+.nos-hero {
+  position: relative;
+  height: 92vh;
+  min-height: 560px;
+  max-height: 860px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.nos-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 14%;
+  filter: grayscale(10%) brightness(0.85);
+  transform: scale(1.04);
+  transition: transform 8s ease;
+}
+
+.nos-hero.loaded .nos-hero__img {
+  transform: scale(1);
+}
+
+/* Móvil: la foto ocupa la parte alta (rostros a la vista) y se funde hacia el texto,
+   que queda en la zona oscura inferior; así nada tapa a la pareja. */
+@media (max-width: 899px) {
+  .nos-hero {
+    background: var(--bg-dark-1);
+  }
+
+  .nos-hero__img {
+    inset: 0 0 auto 0;
+    height: 64%;
+    object-position: 40% 20%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  }
+}
+
+/* Escritorio: la foto es vertical (749×1024), así que ocupa el lado derecho en vez de
+   recortarse a lo ancho de toda la pantalla. Se ve la pareja completa (rostros y torso)
+   y el texto queda sobre la zona oscura de la izquierda. */
+@media (min-width: 900px) {
+  .nos-hero {
+    background: var(--bg-dark-1);
+  }
+
+  .nos-hero__img {
+    inset: 0 0 0 auto;
+    width: 62%;
+    object-position: 50% 16%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  }
+}
+
+.nos-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(55, 18, 96, 0.72) 0%,
+    rgba(186, 0, 124, 0.42) 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.nos-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--space-md) 5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.nos-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.25rem;
+}
+
+.nos-hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.nos-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nos-hero__title em {
+  font-style: italic;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 180, 230, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nos-hero__lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.nos-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: bounceDown 2s ease infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ══════════════════════════════════════════════
+   INTRO — Descripción breve centrada
+══════════════════════════════════════════════ */
+.nos-intro {
+  background: #faf5fb;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.nos-intro__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.nos-intro__quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-style: italic;
+  color: var(--color-purple);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.nos-intro__quote::before {
+  content: '\201C';
+  font-size: 5rem;
+  line-height: 0;
+  color: rgba(186, 0, 124, 0.15);
+  position: absolute;
+  top: 1.5rem;
+  left: -1.5rem;
+  font-family: var(--font-serif);
+}
+
+.nos-intro__sub {
+  color: var(--color-gray);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════════════
+   PERFILES — Vale & JuanPa
+══════════════════════════════════════════════ */
+.nos-perfiles {
+  background: var(--color-white);
+  padding: 6rem 0;
+}
+
+.nos-perfiles__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 860px) {
+  .nos-perfiles__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.perfil-card {
+  background: #ffffff;
+  border: 1px solid rgba(55, 18, 96, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(55, 18, 96, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.perfil-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(55, 18, 96, 0.12);
+}
+
+.perfil-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-brand);
+}
+
+.perfil-card__image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: rgba(186, 0, 124, 0.08);
+  box-shadow: 0 12px 32px rgba(186, 0, 124, 0.15);
+  border: 5px solid #ffffff;
+}
+
+.perfil-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  color: var(--color-magenta);
+  font-size: 1rem;
+  text-align: center;
+  line-height: 170px;
+}
+
+.perfil-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  margin-bottom: 0.35rem;
+}
+
+.perfil-card__role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  margin-bottom: 1.25rem;
+}
+
+.perfil-card__bio {
+  font-size: 0.97rem;
+  color: var(--color-gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.perfil-tag {
+  display: inline-block;
+  background: rgba(55, 18, 96, 0.07);
+  color: var(--color-purple);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(55, 18, 96, 0.1);
+}
+
+/* ══════════════════════════════════════════════
+   TIMELINE — Nuestra Historia
+══════════════════════════════════════════════ */
+.nos-historia {
+  background: #faf5fb;
+  padding: 6rem 0;
+}
+
+.nos-historia__inner {
+  max-width: 780px;
+  margin: 4rem auto 0;
+  position: relative;
+}
+
+/* Línea vertical ahora se maneja por cada item */
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.nos-historia__inner .timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: -3rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-magenta) 0%, var(--color-purple) 100%);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.nos-historia__inner .timeline-item:last-child::before {
+  bottom: auto;
+  height: 58px;
+}
+
+.timeline-dot {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(186, 0, 124, 0.15);
+  color: var(--color-magenta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(55, 18, 96, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(55, 18, 96, 0.12);
+}
+
+.timeline-body {
+  background: #ffffff;
+  border: 1px solid rgba(55, 18, 96, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  flex: 1;
+  box-shadow: 0 12px 40px rgba(55, 18, 96, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.timeline-item:hover .timeline-body {
+  transform: translateX(4px);
+  box-shadow: 0 16px 48px rgba(55, 18, 96, 0.12);
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  margin-bottom: 0.6rem;
+}
+
+.timeline-text {
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  line-height: 1.75;
+}
+
+/* ══════════════════════════════════════════════
+   FILOSOFÍA — Quote + Valores
+══════════════════════════════════════════════ */
+.nos-filosofia {
+  background: var(--color-purple) !important;
+  position: relative;
+  z-index: 2;
+  padding: 7rem 0;
+  overflow: hidden;
+}
+
+.nos-filosofia__halo {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: var(--color-magenta);
+  filter: blur(140px);
+  opacity: 0.18;
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.nos-filosofia__halo2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(80px);
+  bottom: -60px;
+  left: -80px;
+  pointer-events: none;
+}
+
+.nos-filosofia__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.nos-filosofia__quote {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 5rem;
+}
+
+.nos-filosofia__quote blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.nos-filosofia__quote cite {
+  font-size: 0.85rem;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nos-valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .nos-valores { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 540px) {
+  .nos-valores { grid-template-columns: 1fr; }
+}
+
+.valor-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.valor-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.valor-card__icon {
+  color: #ff4d94;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.valor-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.valor-card__text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════════════ */
+.nos-cta {
+  background: var(--color-white);
+  padding: 7rem 0;
+  text-align: center;
+}
+
+.nos-cta__inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.nos-cta h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.nos-cta p {
+  font-size: 1.05rem;
+  color: var(--color-gray);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.nos-cta__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════════════════════ */
+.nos-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.nos-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nos-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.nos-reveal-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stagger .nos-reveal:nth-child(2) { transition-delay: 0.1s; }
+.stagger .nos-reveal:nth-child(3) { transition-delay: 0.2s; }
+.stagger .nos-reveal:nth-child(4) { transition-delay: 0.3s; }
+.stagger .nos-reveal:nth-child(5) { transition-delay: 0.4s; }
+.stagger .nos-reveal:nth-child(6) { transition-delay: 0.5s; }

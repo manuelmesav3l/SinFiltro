@@ -1,0 +1,375 @@
+/* =====================================================
+   ACUERDOS — Sección "Acuerdos desde adentro"
+   Orientación para parejas — tablas, paquetes, sesiones
+   ===================================================== */
+
+.acuerdos {
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.acuerdos-header {
+  max-width: 760px;
+  margin-bottom: var(--space-lg);
+}
+
+.acuerdos-header h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  margin-bottom: var(--space-sm);
+  line-height: 1.15;
+}
+
+.acuerdos-header p {
+  font-size: 1.07rem;
+  color: var(--color-gray);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ── Listas de para quién / qué se llevan ── */
+.acuerdos-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.acuerdos-list-block {
+  background: #faf5fb;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: 1px solid rgba(55, 18, 96, 0.08);
+}
+
+.acuerdos-list-block h3 {
+  font-size: 1.1rem;
+  color: var(--color-purple);
+  margin-bottom: var(--space-sm);
+}
+
+.acuerdos-check-list {
+  list-style: none;
+}
+
+.acuerdos-check-list li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  line-height: 1.6;
+}
+
+.acuerdos-check-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acuerdos-check-list li::after {
+  content: '✓';
+  position: absolute;
+  left: 2px;
+  top: 0.22em;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+/* ── Frase destacada (blockquote) ── */
+.acuerdos-quote {
+  position: relative;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 0.5rem);
+  background: var(--gradient-brand);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.acuerdos-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.2rem;
+  left: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.12);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.acuerdos-quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  color: var(--color-white);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* ── Texto de formato ── */
+.acuerdos-formato {
+  background: rgba(55, 18, 96, 0.04);
+  border-left: 4px solid var(--color-magenta);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.25rem;
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Tablas ── */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(55, 18, 96, 0.1);
+  box-shadow: 0 4px 24px rgba(55, 18, 96, 0.06);
+}
+
+.sf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  min-width: 600px;
+}
+
+.sf-table thead {
+  background: var(--gradient-brand);
+}
+
+.sf-table thead th {
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sf-table tbody tr {
+  border-bottom: 1px solid rgba(55, 18, 96, 0.07);
+  transition: background var(--transition-base);
+}
+
+.sf-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sf-table tbody tr:hover {
+  background: rgba(186, 0, 124, 0.03);
+}
+
+.sf-table tbody td {
+  padding: 0.9rem 1rem;
+  color: var(--color-gray);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.sf-table tbody td:first-child {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-magenta);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.sf-table tbody td strong {
+  color: var(--color-purple);
+  font-weight: 600;
+}
+
+/* ── Tabla de precios ── */
+.pricing-table .sf-table tbody td:first-child {
+  font-family: var(--font-sans);
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--color-purple);
+}
+
+.pricing-table .price-cell {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-magenta);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Acompañamiento asincrónico ── */
+.asinc-block {
+  background: #faf5fb;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: 1px solid rgba(55, 18, 96, 0.08);
+  margin-bottom: var(--space-lg);
+}
+
+.asinc-block h3 {
+  font-size: 1.15rem;
+  color: var(--color-purple);
+  margin-bottom: var(--space-xs);
+}
+
+.asinc-block > p {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+.asinc-list {
+  list-style: none;
+  margin-bottom: var(--space-sm);
+}
+
+.asinc-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.93rem;
+  color: var(--color-gray);
+  line-height: 1.6;
+}
+
+.asinc-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-magenta);
+  font-weight: 700;
+}
+
+.asinc-nota {
+  background: rgba(186, 0, 124, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: var(--color-gray);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Sección de precios ── */
+.acuerdos-pricing-section {
+  margin-bottom: var(--space-lg);
+  background: linear-gradient(180deg, #ffffff 0%, #faf5fb 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-left: calc(-1 * var(--space-md));
+  margin-right: calc(-1 * var(--space-md));
+}
+
+.acuerdos-pricing-section h3 {
+  font-size: 1.3rem;
+  color: var(--color-purple);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Notas operativas ── */
+.notas-operativas {
+  background: rgba(55, 18, 96, 0.03);
+  border-radius: var(--radius-md);
+  padding: 1.25rem var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.notas-operativas h4 {
+  font-size: 0.95rem;
+  color: var(--color-purple);
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.03em;
+}
+
+.notas-list {
+  list-style: none;
+}
+
+.notas-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.88rem;
+  color: var(--color-gray);
+  line-height: 1.55;
+}
+
+.notas-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-magenta);
+}
+
+/* ── Teaser UNILOVE ── */
+.unilove-teaser {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem var(--space-md);
+  background: linear-gradient(135deg, rgba(55,18,96,0.05) 0%, rgba(186,0,124,0.05) 100%);
+  border: 1.5px dashed rgba(186, 0, 124, 0.3);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-md);
+}
+
+.unilove-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.unilove-teaser h3 {
+  font-size: 1.15rem;
+  color: var(--color-magenta);
+  margin-bottom: 0.2rem;
+}
+
+.unilove-teaser p {
+  font-size: 0.9rem;
+  color: var(--color-gray);
+  margin: 0;
+}
+
+/* ── Section heading ── */
+.acuerdos-section-label {
+  font-size: 1.2rem;
+  color: var(--color-purple);
+  margin: var(--space-lg) 0 var(--space-sm);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(55, 18, 96, 0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 899px) {
+  .acuerdos-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .acuerdos-quote p {
+    font-size: 1.15rem;
+  }
+
+  .sf-table {
+    font-size: 0.85rem;
+  }
+
+  .unilove-teaser {
+    flex-direction: column;
+    text-align: center;
+  }
+}

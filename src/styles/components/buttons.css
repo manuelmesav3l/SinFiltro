@@ -1,0 +1,89 @@
+/* =====================================================
+   BUTTONS — Sistema de botones
+   ===================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 2.2rem;
+  min-height: 48px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* ── Primary (gradiente magenta) ── */
+.btn-primary {
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  box-shadow: 0 8px 30px rgba(186, 0, 124, 0.35);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--color-magenta);
+}
+
+/* Variante hero con efecto glow pulsante */
+.hero .btn-primary {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.hero .btn-primary:hover,
+.hero .btn-primary:focus-visible {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+  animation: none;
+}
+
+/* ── Outline (borde blanco) ── */
+.btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+/* ── Dark (púrpura sólido) ── */
+.btn-dark {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.btn-dark:hover,
+.btn-dark:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(55, 18, 96, 0.4);
+}
+
+/* ── Focus accesible ── */
+.btn:focus-visible {
+  outline: 2px solid var(--color-magenta);
+  outline-offset: 3px;
+}

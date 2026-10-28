@@ -1,0 +1,19 @@
+{
+  "name": "sinfiltro",
+  "version": "1.0.0",
+  "description": "Sin Filtro — El universo del amor consciente",
+  "scripts": {
+    "dev": "vite",
+    "sync:youtube": "node scripts/sync-youtube.mjs",
+    "build": "node scripts/sync-youtube.mjs && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && npx vercel --prod --yes",
+    "tunnel": "node scripts/share.mjs",
+    "share": "concurrently --names \"VITE,TUNEL\" --prefix-colors \"magenta,cyan\" \"vite --port 4173 --strictPort\" \"node scripts/share.mjs\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "localtunnel": "^2.0.2",
+    "vite": "^8.1.3"
+  }
+}

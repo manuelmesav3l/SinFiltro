@@ -1,0 +1,40 @@
+name: Auto Sync YouTube Videos
+
+on:
+  schedule:
+    # Se ejecuta automáticamente cada 3 horas (8 veces al día)
+    - cron: '0 */3 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente con un clic desde GitHub
+  repository_dispatch: # Permite dispararlo al instante desde Zapier, Make o Webhooks
+    types: [youtube-publish, new-video]
+
+permissions:
+  contents: write
+
+jobs:
+  sync-youtube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sincronizar catálogo de YouTube
+        run: node scripts/sync-youtube.mjs
+
+      - name: Commit y push si hay nuevos videos
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          if [ -n "$(git status --porcelain public/data/youtube-videos.json)" ]; then
+            git add public/data/youtube-videos.json
+            git commit -m "chore(youtube): sincronizar nuevos episodios automáticamente [skip ci]"
+            git push
+            echo "✅ Nuevos videos detectados y guardados en el repositorio."
+          else
+            echo "ℹ️ El catálogo ya está al día. No hay nuevos videos."
+          fi

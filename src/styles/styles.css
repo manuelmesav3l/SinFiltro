@@ -1,0 +1,98 @@
+/* =====================================================
+   Sin Filtro — Punto de entrada de estilos
+   =====================================================
+   Orden:
+     1. Importaciones de módulos (deben preceder todo)
+     2. Design tokens (:root)
+   ===================================================== */
+
+/* ── 1. Base ── */
+@import './base.css';
+
+/* ── 2. Componentes ── */
+@import './components/buttons.css';
+@import './components/header.css';
+@import './components/hero.css';
+@import './components/tunnel.css';
+@import './components/about.css';
+@import './components/services.css';
+@import './components/testimonials.css';
+@import './components/faq.css';
+@import './components/modal.css';
+@import './components/cta.css';
+@import './components/footer.css';
+@import './components/lead-magnet.css';
+@import './components/arte-conectar.css';
+@import './components/explora.css';
+@import './components/acuerdos.css';
+@import './components/acuerdos-page.css';
+@import './components/nosotros.css';
+@import './components/ux-improvements.css';
+@import './components/countdown-teaser.css';
+@import './components/spotify-player.css';
+@import './components/dark-mode.css';
+@import './components/encuentros.css'; /* después del modo oscuro: rediseño del selector de encuentros */
+@import './components/fiesta-modal.css';
+@import './components/contenido-mobile.css'; /* rediseño móvil de "Vive la experiencia" */
+@import './components/mobile-platform.css'; /* siempre el último: ajustes de Android e iOS */
+
+/* ── 3. Design Tokens Dark Mode (Morados oscuros, Rojos y Obsidian) ── */
+:root {
+  /* Fondos y superficies Dark Mode */
+  --bg-dark-0:         #07020d; /* Fondo principal más oscuro / obsidiana */
+  --bg-dark-1:         #0d0417; /* Secciones primarias */
+  --bg-dark-2:         #130722; /* Secciones alternadas morado oscuro */
+  --bg-dark-card:      #160829; /* Tarjetas y contenedores morado oscuro */
+  --bg-dark-card-hover:#200d38; /* Hover de tarjetas */
+  --bg-dark-input:     #12061f; /* Inputs y formularios */
+
+  /* Colores de marca: Morados oscuros y Rojos */
+  --color-purple:      #f5eefc; /* Títulos y encabezados luminosos */
+  --color-purple-dark: #1e0935; /* Morado oscuro profundo */
+  --color-purple-mid:  #431065; /* Morado intermedio */
+  --color-purple-glow: #d8b4fe; /* Morado lila para brillos y acentos */
+
+  --color-magenta:     #e62646; /* Rojo carmesí vibrante */
+  --color-red:         #e62646; /* Rojo carmesí principal */
+  --color-red-glow:    #ff4d6d; /* Rojo neón / resplandor */
+  --color-red-dark:    #8b1029; /* Rojo vino oscuro */
+  --color-pink:        #f0289a; /* Rosa del logo (#da0380) aclarado para fondos oscuros */
+  --color-red-deep:    #5c0819; /* Borgoña oscuro */
+
+  --color-gray:        #cfc4db; /* Texto de párrafos en lavanda plateado suave */
+  --color-ink:         #ded6e8;
+  --color-white:       #ffffff; /* Blanco puro para textos y contrastes altos */
+
+  /* Gradientes de marca: Rojos Carmesí a Morados Oscuros */
+  --gradient-brand:      linear-gradient(135deg, #e62646 0%, #99124e 45%, #2d0b4d 100%);
+  --gradient-red-purple: linear-gradient(135deg, #ff4d6d 0%, #b81442 50%, #3e0e5c 100%);
+  --gradient-card:       linear-gradient(145deg, rgba(35, 12, 58, 0.75) 0%, rgba(18, 6, 32, 0.95) 100%);
+  --gradient-card-hover: linear-gradient(145deg, rgba(48, 16, 78, 0.85) 0%, rgba(24, 8, 42, 0.98) 100%);
+
+  /* Tipografía */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-sans:  'Poppins', 'Inter', sans-serif;
+
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* Bordes */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Sombras y resplandores en Dark Mode */
+  --shadow-glow:     0 0 50px rgba(230, 38, 70, 0.35);
+  --shadow-card:     0 14px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(230, 38, 70, 0.15);
+  --border-subtle:   1px solid rgba(255, 255, 255, 0.08);
+  --border-card:     1px solid rgba(230, 38, 70, 0.22);
+  --border-hover:    1px solid rgba(255, 77, 109, 0.55);
+  --transition-base: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Header */
+  --header-h: 76px;
+}

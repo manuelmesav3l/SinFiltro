@@ -1,0 +1,53 @@
+/* =====================================================
+   FINAL CTA — Bloque de llamada a la acción final
+   ===================================================== */
+
+.final-cta {
+  background: transparent;
+  text-align: center;
+  color: var(--color-purple);
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.final-cta .halo {
+  display: none;
+}
+
+.final-cta h2 {
+  color: var(--color-purple);
+}
+
+.final-cta p {
+  max-width: 520px;
+  margin: 0 auto var(--space-md);
+  color: var(--color-gray);
+}
+
+.final-cta .btn {
+  border: 1.5px solid var(--color-purple);
+  color: var(--color-purple);
+  background: transparent;
+  transition: all var(--transition-base);
+}
+
+.final-cta .btn:hover,
+.final-cta .btn:focus-visible {
+  background: var(--color-purple);
+  color: var(--color-white);
+  border-color: var(--color-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(55, 18, 96, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 699px) {
+  .final-cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .final-cta .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}

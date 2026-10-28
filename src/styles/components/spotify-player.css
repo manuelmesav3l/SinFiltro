@@ -1,0 +1,329 @@
+/* =====================================================
+   Sin Filtro — Reproductor Flotante de Spotify
+   ===================================================== */
+
+/* ── Contenedor: la tarjeta cuelga bajo el header (el botón vive dentro del header) ── */
+.spotify-floating-widget {
+  position: fixed;
+  top: 4.9rem; /* píldora del header: 0.6rem + 60px + aire */
+  left: max(1rem, calc((100vw - 1180px) / 2 + 1rem)); /* valor de respaldo; spotify-player.js la alinea bajo el botón */
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none; /* Sólo los interactivos internos reciben clics */
+  font-family: var(--font-sans, 'Poppins', sans-serif);
+}
+
+/* ── Tarjeta emergente (reproductor) ── */
+.spotify-card {
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  max-width: calc(100vw - 3rem);
+  background: rgba(26, 10, 44, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(186, 0, 124, 0.35);
+  border-radius: 18px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(186, 0, 124, 0.25),
+    0 0 12px rgba(29, 185, 84, 0.15);
+  padding: 1rem;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px) scale(0.96);
+  transform-origin: top left;
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.35s;
+}
+
+/* Estado abierto: nunca usar display:none para que el iframe no pause */
+.spotify-card.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Header de la tarjeta ── */
+.spotify-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spotify-card-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.spotify-icon {
+  color: #1DB954;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(29, 185, 84, 0.4));
+}
+
+.spotify-brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.spotify-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.spotify-subtitle {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.3s ease;
+}
+
+.spotify-floating-widget.is-playing .spotify-subtitle {
+  color: #1ed760;
+}
+
+/* ── Acciones de cabecera ── */
+.spotify-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.spotify-btn-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.spotify-btn-action:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: scale(1.06);
+}
+
+.spotify-btn-action:focus-visible {
+  outline: 2px solid #1DB954;
+  outline-offset: 2px;
+}
+
+/* Botón de reproducción rápida */
+.spotify-btn-playtoggle {
+  background: #1DB954;
+  color: #000000;
+  border-color: #1DB954;
+}
+
+.spotify-btn-playtoggle:hover {
+  background: #1ed760;
+  color: #000000;
+  box-shadow: 0 0 14px rgba(29, 185, 84, 0.5);
+}
+
+.spotify-btn-playtoggle .icon-pause {
+  display: none;
+}
+
+.spotify-floating-widget.is-playing .spotify-btn-playtoggle .icon-play {
+  display: none;
+}
+
+.spotify-floating-widget.is-playing .spotify-btn-playtoggle .icon-pause {
+  display: block;
+}
+
+/* ── Contenedor del embed ── */
+.spotify-card-body {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000000;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+  min-height: 352px;
+  position: relative;
+}
+
+.spotify-embed-container {
+  width: 100%;
+  height: 352px;
+}
+
+.spotify-embed-container iframe {
+  display: block;
+  width: 100%;
+  height: 352px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* ── Botón de playlist en el header ── */
+.spotify-floating-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 40px;
+  padding: 0 0.9rem 0 0.35rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-family: var(--font-sans, 'Poppins', sans-serif);
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.spotify-floating-btn:hover,
+.spotify-floating-btn[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(29, 185, 84, 0.65);
+}
+
+.spotify-floating-btn.is-playing {
+  border-color: rgba(29, 185, 84, 0.7);
+  box-shadow: 0 0 14px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-floating-btn:focus-visible {
+  outline: 2px solid #1DB954;
+  outline-offset: 3px;
+}
+
+/* Envoltura del icono y ecualizador */
+.spotify-fab-icon-wrap {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #121212;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.35);
+}
+
+.spotify-fab-icon {
+  color: #1DB954;
+  transition: transform 0.3s ease;
+}
+
+.spotify-floating-btn:hover .spotify-fab-icon {
+  transform: scale(1.08);
+}
+
+/* ── Ecualizador animado ── */
+.spotify-equalizer {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+  padding: 2px 3px;
+  background: rgba(18, 18, 18, 0.95);
+  border-radius: 4px;
+  border: 1px solid rgba(29, 185, 84, 0.3);
+}
+
+.eq-bar {
+  width: 2.5px;
+  background: #1DB954;
+  border-radius: 1px;
+  height: 4px;
+  animation: eqBounce 1s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+.eq-bar.bar-1 { animation-duration: 0.6s; animation-delay: 0.1s; }
+.eq-bar.bar-2 { animation-duration: 0.85s; animation-delay: 0.3s; }
+.eq-bar.bar-3 { animation-duration: 0.7s; animation-delay: 0.2s; }
+.eq-bar.bar-4 { animation-duration: 0.95s; animation-delay: 0.4s; }
+
+.spotify-floating-btn.is-playing .eq-bar {
+  animation-play-state: running;
+}
+
+@keyframes eqBounce {
+  0%   { height: 3px; }
+  50%  { height: 11px; }
+  100% { height: 5px; }
+}
+
+/* Texto del botón flotante */
+.spotify-fab-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+/* Móvil: el botón vive dentro del menú desplegable, como una fila más a todo el ancho */
+@media (max-width: 899px) {
+  .spotify-floating-widget {
+    top: 4.6rem;
+    left: 0.75rem;
+  }
+
+  .spotify-floating-btn {
+    width: 100%;
+    height: 44px;
+    padding: 0 1rem 0 0.4rem;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .spotify-card {
+    width: calc(100vw - 1.5rem);
+    max-width: 380px;
+  }
+}
+
+/* ── Reducción de movimiento accesible ── */
+@media (prefers-reduced-motion: reduce) {
+  .spotify-card,
+  .spotify-floating-btn,
+  .spotify-btn-action {
+    transition: none !important;
+  }
+
+  .eq-bar {
+    animation: none !important;
+  }
+}

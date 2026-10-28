@@ -1,0 +1,142 @@
+/* =====================================================
+   MÓVIL — Android (Chrome) e iOS (Safari)
+   Se carga al final. Corrige lo que solo se rompe en teléfonos reales:
+   anchos que ensanchan la página, unidades de viewport con barras del navegador,
+   zoom automático de iOS en formularios y áreas táctiles pequeñas.
+   ===================================================== */
+
+/* iOS gira el teléfono y agranda el texto por su cuenta: se desactiva */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Respuesta táctil sutil (rosa de marca) en lugar del destello gris por defecto */
+a,
+button,
+[role='tab'],
+summary {
+  -webkit-tap-highlight-color: rgba(240, 40, 154, 0.2);
+}
+
+/* iOS hace zoom al enfocar un campo con menos de 16px: se evita sin bloquear el zoom del usuario */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.modal-form-group input,
+.modal-form-group textarea,
+.modal-form-group select {
+  font-size: 16px;
+}
+
+/* ── Altura de viewport: 100vh en móvil incluye la barra del navegador y recorta el hero.
+      svh = viewport "pequeño" (barras visibles); dvh = se ajusta cuando las barras se esconden. ── */
+@supports (height: 100svh) {
+  .hero {
+    height: 100svh !important;
+  }
+
+  .circle-transition {
+    --hero-h: max(100svh, 600px);
+  }
+
+  .circle-transition.is-ready::after {
+    height: 80svh;
+  }
+
+  .nos-hero {
+    height: 92svh;
+  }
+}
+
+@supports (max-height: 90dvh) {
+  .modal-content-wide,
+  .modal-content-fiesta {
+    max-height: 90dvh;
+  }
+
+  /* En escritorio el scroll vive en la columna de contenido; en móvil, en el modal entero */
+  @media (min-width: 821px) {
+    .fiesta-layout,
+    .fiesta-scroll {
+      max-height: 90dvh;
+    }
+  }
+}
+
+/* ── Tracks de grid con 1fr: su mínimo es el contenido y un botón largo (white-space: nowrap)
+      ensancha toda la página. min-width:0 deja que la columna respete el ancho del teléfono. ── */
+.about-grid > *,
+.cards > *,
+.acuerdos-cards-grid > *,
+.incluye-grid > *,
+.precios-grid > *,
+.nos-perfiles__grid > *,
+.footer-grid > *,
+.encuentros-grid-new > *,
+.filosofia-cards-showcase > *,
+.timeline-grid > * {
+  min-width: 0;
+}
+
+/* ── Teléfonos estrechos (≤480px: Android pequeños, iPhone SE/mini) ── */
+@media (max-width: 480px) {
+  /* los botones pueden partirse en dos líneas en vez de empujar el ancho */
+  .btn {
+    white-space: normal;
+    text-align: center;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
+
+/* ── Áreas táctiles de al menos 44×44px (Apple HIG) / 48dp (Material) ── */
+@media (pointer: coarse) {
+  .btn,
+  .nav-toggle {
+    min-height: 44px;
+  }
+
+  /* header.css fija el botón en 38px con !important: se iguala con la misma fuerza */
+  .header.scrolled .nav-links .nav-cta,
+  .header .nav-links .nav-cta {
+    min-height: 44px !important;
+    height: 44px !important;
+  }
+
+
+  .social-row a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer ul a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer ul li {
+    margin-bottom: 0;
+  }
+
+  .encuentro-venue__link,
+  .nos-hero__scroll {
+    min-height: 44px;
+    padding-block: 0.5rem;
+  }
+
+  .hero-quote-pause,
+  .hero-quote-dot {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Pie de página: el correo y otros textos sin espacios no deben ensanchar la página (tablets de 700–830px) */
+.footer-grid > * {
+  overflow-wrap: anywhere;
+}

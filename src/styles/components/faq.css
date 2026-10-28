@@ -1,0 +1,71 @@
+/* =====================================================
+   FAQ — Acordeón de preguntas frecuentes
+   ===================================================== */
+
+.faq {
+  background: var(--color-white);
+}
+
+/* ── Contenedor del acordeón ── */
+.accordion {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(91, 91, 95, 0.2);
+}
+
+/* ── Botón trigger ── */
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  background: none;
+  border: none;
+  padding: var(--space-sm) 0;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--color-purple);
+  cursor: pointer;
+}
+
+/* ── Icono +/× ── */
+.accordion-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  color: var(--color-magenta);
+  transition: transform var(--transition-base);
+  font-size: 1.2rem;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* ── Panel de contenido ── */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding var(--transition-base);
+  font-size: 0.95rem;
+  color: var(--color-gray);
+}
+
+.accordion-item.open .accordion-panel {
+  padding-bottom: var(--space-sm);
+}
+
+/* ── Responsive ── */
+@media (max-width: 699px) {
+  .accordion-trigger {
+    font-size: 0.96rem;
+  }
+}

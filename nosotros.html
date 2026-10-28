@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07020d" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- SEO -->
+  <title>¿Quiénes somos? — Vale & JuanPa · Sin Filtro</title>
+  <meta name="description"
+    content="Conoce a Vale y JuanPa, las personas detrás de Sin Filtro: su historia, su formación profesional y la filosofía que guía cada acompañamiento." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sinfiltro.com/nosotros" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://sinfiltro.com/nosotros" />
+  <meta property="og:title"       content="¿Quiénes somos? — Vale & JuanPa · Sin Filtro" />
+  <meta property="og:description" content="Conoce a Vale y JuanPa, las personas detrás de Sin Filtro: su historia y su filosofía del amor consciente." />
+  <meta property="og:image"       content="/assets/images/couple.jpg" />
+  <meta property="og:locale"      content="es_CO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="¿Quiénes somos? — Vale & JuanPa · Sin Filtro" />
+  <meta name="twitter:description" content="Conoce a Vale y JuanPa, las personas detrás de Sin Filtro." />
+  <meta name="twitter:image"       content="/assets/images/couple.jpg" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/src/styles/styles.css" />
+</head>
+
+<body class="subpage-nosotros">
+
+  <!-- Barra de progreso -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <!-- ════════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════ -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <a href="/home.html" class="logo">
+        <img
+          class="logo-img logo-img--white"
+          src="/assets/logo/logo-white.svg"
+          alt="Sin Filtro"
+          fetchpriority="high"
+          width="120"
+          height="52" />
+        <img
+          class="logo-img logo-img--color"
+          src="/assets/logo/logo-color.svg"
+          alt="Sin Filtro"
+          loading="lazy"
+          width="120"
+          height="52" />
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+
+        <a href="/home.html#explora">Explora el universo</a>
+        <a href="/acuerdos.html">Acuerdos desde adentro</a>
+        <a href="/nosotros.html" class="active">¿Quiénes somos?</a>
+        <!-- Playlist: abre la tarjeta del reproductor (#spotifyCard) -->
+        <button type="button" class="spotify-floating-btn header-playlist" id="spotifyFloatingBtn" aria-expanded="false"
+          aria-controls="spotifyCard" aria-label="Playlist Sin Filtro: abrir reproductor">
+          <span class="spotify-fab-icon-wrap">
+            <svg class="spotify-fab-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.48.66.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+            <span class="spotify-equalizer" aria-hidden="true">
+              <span class="eq-bar bar-1"></span>
+              <span class="eq-bar bar-2"></span>
+              <span class="eq-bar bar-3"></span>
+              <span class="eq-bar bar-4"></span>
+            </span>
+          </span>
+          <span class="spotify-fab-label">Playlist</span>
+        </button>
+        <button class="btn nav-cta" data-modal="modalAgenda">Agenda tu cita <span class="nav-cta-arrow" aria-hidden="true">→</span></button>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navLinks">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════════
+         HERO CON FOTO
+    ════════════════════════════════════════════ -->
+    <section class="nos-hero" id="inicio" aria-label="Hero de Quiénes somos">
+      <img
+        class="nos-hero__img"
+        src="/assets/images/couple.jpg"
+        alt="Vale y JuanPa, fundadores de Sin Filtro"
+        fetchpriority="high" />
+      <div class="nos-hero__overlay" aria-hidden="true"></div>
+
+      <div class="nos-hero__content container">
+        <p class="nos-hero__eyebrow">Sin Filtro · Las personas detrás</p>
+        <h1 class="nos-hero__title">
+          Detrás de<br />
+          <em>Sin Filtro</em>
+        </h1>
+        <p class="nos-hero__lead">
+          Dos personas con formación profesional, una historia de amor real y la convicción de que las relaciones merecen honestidad.
+        </p>
+        <a href="#quienes-somos" class="nos-hero__scroll" aria-label="Ver más">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+          Conócenos
+        </a>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         INTRO
+    ════════════════════════════════════════════ -->
+    <section class="nos-intro tab-card" id="quienes-somos" aria-labelledby="introHeading">
+      <div class="container">
+        <div class="nos-intro__inner nos-reveal">
+          <span class="eyebrow center">Nuestra razón de ser</span>
+          <p class="nos-intro__quote" id="introHeading">
+            Somos dos personas con formación y con postura, que además han vivido en carne propia las preguntas que hoy acompañan en otros.
+          </p>
+          <p class="nos-intro__sub">
+            Eso no nos hace perfectos. Nos hace honestos. Sin Filtro nació de la necesidad de crear un espacio donde hablar de amor, acuerdos y relaciones sin juicios, sin recetas y sin etiquetas forzadas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         PERFILES — Vale & JuanPa
+    ════════════════════════════════════════════ -->
+    <section class="nos-perfiles" id="perfiles" aria-labelledby="perfilesHeading">
+      <div class="container">
+        <span class="eyebrow center">¿Quiénes somos?</span>
+        <h2 class="section-title center nos-reveal" id="perfilesHeading">Las personas detrás del proyecto</h2>
+
+        <div class="nos-perfiles__grid stagger">
+
+          <!-- Vale -->
+          <article class="perfil-card nos-reveal" id="perfil-vale">
+            <div class="perfil-card__image">
+              <img src="/assets/images/vale-profile.jpg" alt="Foto de Vale" loading="lazy">
+            </div>
+            <h3 class="perfil-card__name">Vale</h3>
+            <p class="perfil-card__role">Trabajadora Social · Magíster en Intervención Social</p>
+            <p class="perfil-card__bio">
+              Vale lleva ocho años trabajando en equidad de género y derechos de las mujeres. Su formación le dio la capacidad de nombrar la violencia con precisión, construir marcos analíticos sobre las relaciones y entender por qué amamos como amamos.
+            </p>
+            <p class="perfil-card__bio">
+              Desde la perspectiva de género y los derechos humanos, acompaña a las personas a reconocer los patrones que heredamos, cuestionarlos y elegir conscientemente cómo queremos relacionarnos.
+            </p>
+            <div class="perfil-card__tags">
+              <span class="perfil-tag">Equidad de género</span>
+              <span class="perfil-tag">Derechos de las mujeres</span>
+              <span class="perfil-tag">Intervención social</span>
+              <span class="perfil-tag">Relaciones conscientes</span>
+            </div>
+          </article>
+
+          <!-- JuanPa -->
+          <article class="perfil-card nos-reveal" id="perfil-juanpa">
+            <div class="perfil-card__image">
+              <img src="/assets/images/juanpa-profile.jpg" alt="Foto de JuanPa" loading="lazy">
+            </div>
+            <h3 class="perfil-card__name">JuanPa</h3>
+            <p class="perfil-card__role">Psicólogo · Magíster en Psicología Jurídica y Forense</p>
+            <p class="perfil-card__bio">
+              JuanPa ha trabajado en atención a víctimas de violencia, acompañamiento a jóvenes, procesos de duelo, atención familiar y atención a parejas, siempre desde una mirada cognitivo-conductual.
+            </p>
+            <p class="perfil-card__bio">
+              Su enfoque combina la rigurosidad clínica con la calidez humana: entiende que para que el cambio ocurra, primero hay que sentirse escuchado, no evaluado.
+            </p>
+            <div class="perfil-card__tags">
+              <span class="perfil-tag">Psicología clínica</span>
+              <span class="perfil-tag">Atención a parejas</span>
+              <span class="perfil-tag">Duelo y vínculos</span>
+              <span class="perfil-tag">Cognitivo-conductual</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         NUESTRA HISTORIA — Timeline
+    ════════════════════════════════════════════ -->
+    <section class="nos-historia" id="historia" aria-labelledby="historiaHeading">
+      <div class="container">
+        <span class="eyebrow center">Nuestra historia</span>
+        <h2 class="section-title center nos-reveal" id="historiaHeading">Cómo llegamos aquí</h2>
+
+        <div class="nos-historia__inner stagger">
+
+          <div class="timeline-item nos-reveal">
+            <div class="timeline-dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></div>
+            <div class="timeline-body">
+              <p class="timeline-date">14 de enero de 2023</p>
+              <h3 class="timeline-title">El primer encuentro</h3>
+              <p class="timeline-text">
+                Fue amor a primera vista: una conexión inmediata, de esas que se sienten antes de poder explicarlas. Dos personas con trayectorias distintas que se encontraron en el momento justo.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item nos-reveal">
+            <div class="timeline-dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+            <div class="timeline-body">
+              <p class="timeline-date">Inicio de la relación</p>
+              <h3 class="timeline-title">Las conversaciones más difíciles</h3>
+              <p class="timeline-text">
+                No empezamos de la mejor manera. Esa realidad nos obligó, desde el inicio, a mirarnos de frente y a tener las conversaciones más difíciles que ninguno de los dos había tenido antes.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item nos-reveal">
+            <div class="timeline-dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg></div>
+            <div class="timeline-body">
+              <p class="timeline-date">Una decisión consciente</p>
+              <h3 class="timeline-title">Construir una relación abierta</h3>
+              <p class="timeline-text">
+                Decidimos construir una relación abierta. No como salida fácil, sino como una decisión consciente: un vínculo afectivo primario entre nosotros, con apertura acordada, sin etiquetas y sin cerrarnos a que los acuerdos evolucionen.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item nos-reveal">
+            <div class="timeline-dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paw-print"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.58 3.58 0 0 1 2 13.5 5.5 5.5 0 0 1 8 8h1Z"/></svg></div>
+            <div class="timeline-body">
+              <p class="timeline-date">Hoy</p>
+              <h3 class="timeline-title">Vivir juntos, con todo lo que somos</h3>
+              <p class="timeline-text">
+                Hoy vivimos juntos, con dos perritas adoptadas. Somos muy rumberos —la fiesta, la música y el baile son parte central de quiénes somos— y, al mismo tiempo, muy familiares. Esa combinación no es una contradicción: es exactamente lo que somos.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item nos-reveal">
+            <div class="timeline-dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkle"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div>
+            <div class="timeline-body">
+              <p class="timeline-date">El nacimiento de Sin Filtro</p>
+              <h3 class="timeline-title">De nuestra historia al acompañamiento</h3>
+              <p class="timeline-text">
+                Las preguntas que vivimos en carne propia —sobre acuerdos, celos, comunicación, límites y deseo— son exactamente las que hoy acompañamos en otros. Eso nos dio la honestidad de hablar desde la experiencia, no solo desde la teoría.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         NUESTRA FILOSOFÍA
+    ════════════════════════════════════════════ -->
+    <section class="nos-filosofia" id="filosofia" aria-labelledby="filosofiaHeading">
+      <div class="nos-filosofia__halo" aria-hidden="true"></div>
+      <div class="nos-filosofia__halo2" aria-hidden="true"></div>
+
+      <div class="container nos-filosofia__inner">
+        <span class="eyebrow center" style="color: rgba(255,255,255,0.6);">Nuestra filosofía</span>
+        <h2 class="section-title center nos-reveal" id="filosofiaHeading" style="color: #ffffff; margin-bottom: 3rem;">Lo que nos mueve</h2>
+
+        <div class="nos-filosofia__quote nos-reveal">
+          <blockquote>
+            Nuestro mensaje no es que todo el mundo abra su relación. Es que cualquier relación —sea del formato que sea— puede estar basada en respeto, comunicación, sinceridad y cuidado.
+          </blockquote>
+          <cite>— Vale &amp; JuanPa</cite>
+        </div>
+
+        <div class="nos-valores stagger">
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+            <h3 class="valor-card__title">Honestidad radical</h3>
+            <p class="valor-card__text">Hablamos con claridad, aunque incomode. Sin suavizar lo que necesita ser dicho.</p>
+          </div>
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ban"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span>
+            <h3 class="valor-card__title">Sin juicios</h3>
+            <p class="valor-card__text">No hay una forma correcta de amar. Acompañamos sin imponer modelos ni etiquetas.</p>
+          </div>
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3 class="valor-card__title">Acuerdos reales</h3>
+            <p class="valor-card__text">Los acuerdos se construyen, no se suponen. Cada pareja tiene los suyos, únicos y revisables.</p>
+          </div>
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+            <h3 class="valor-card__title">Formación + experiencia</h3>
+            <p class="valor-card__text">Combinamos el marco profesional con el saber vivido. Teoría y práctica al mismo tiempo.</p>
+          </div>
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+            <h3 class="valor-card__title">Cuidado mutuo</h3>
+            <p class="valor-card__text">El amor consciente incluye cuidarse a uno mismo tanto como cuidar al otro.</p>
+          </div>
+
+          <div class="valor-card nos-reveal">
+            <span class="valor-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span>
+            <h3 class="valor-card__title">Relaciones vivas</h3>
+            <p class="valor-card__text">Las relaciones cambian. Lo que funciona hoy puede necesitar revisión mañana, y eso está bien.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         CTA FINAL
+    ════════════════════════════════════════════ -->
+    <section class="nos-cta" id="cta" aria-labelledby="ctaHeading">
+      <div class="container">
+        <div class="nos-cta__inner">
+          <span class="eyebrow center">¿Listos para conversar?</span>
+          <h2 class="nos-reveal" id="ctaHeading">Da el primer paso hacia una relación más consciente</h2>
+          <p class="nos-reveal">
+            Honesta, libre de juicios y construida desde los acuerdos que a ti te funcionan, no desde los que te dijeron que debían funcionar.
+          </p>
+          <div class="nos-cta__buttons nos-reveal">
+            <button class="btn btn-primary" data-modal="modalAgenda">Agenda tu cita</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <a href="/" class="logo">
+            <img src="/assets/logo/logo-white.svg" alt="Sin Filtro" width="130" height="56" loading="lazy" style="height: 52px; width: auto;" />
+          </a>
+          <p>El universo del amor consciente. Asesorías para parejas que eligen la honestidad.</p>
+          <div class="social-row">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/universosinfiltro" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Sin Filtro">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4.5"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@sinfiltrovaleyjuanpa?_r=1&amp;_t=ZS-9AX8YUlqo9C" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Sin Filtro">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.56V6.8a4.85 4.85 0 0 1-1.07-.11z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@Sinfiltrovaleyjuanpa" target="_blank" rel="noopener noreferrer" aria-label="YouTube de Sin Filtro">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/573006977800" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Sin Filtro">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="/#explora">Explora el universo</a></li>
+            <li><a href="/acuerdos.html">Acuerdos desde adentro</a></li>
+            <li><a href="/nosotros.html">¿Quiénes somos?</a></li>
+            <li><a href="/#faq">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Contacto</h5>
+          <ul>
+            <li>sinfiltrovaleyjuanpa@gmail.com</li>
+            <li>WhatsApp: +57 300 697 7800</li>
+            <li>Medellín, Colombia</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> Sin Filtro. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       REPRODUCTOR FLOTANTE DE SPOTIFY
+  ════════════════════════════════════════════ -->
+  <aside class="spotify-floating-widget" id="spotifyFloatingWidget" aria-label="Reproductor de música Sin Filtro">
+    <!-- Tarjeta emergente del reproductor -->
+    <div class="spotify-card" id="spotifyCard" role="region" aria-label="Lista de reproducción Sin Filtro en Spotify" aria-hidden="true">
+      <div class="spotify-card-header">
+        <div class="spotify-card-brand">
+          <svg class="spotify-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.48.66.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          <div class="spotify-brand-text">
+            <span class="spotify-title">Sin Filtro • Playlist</span>
+            <span class="spotify-subtitle" id="spotifyStatusText">Música para conectar</span>
+          </div>
+        </div>
+        <div class="spotify-card-actions">
+          <button type="button" class="spotify-btn-action spotify-btn-playtoggle" id="spotifyPlayToggle" aria-label="Reproducir o pausar música">
+            <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
+          <button type="button" class="spotify-btn-action spotify-btn-close" id="spotifyCardClose" aria-label="Minimizar reproductor">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="spotify-card-body" id="spotifyCardBody">
+        <div id="spotifyEmbedContainer" class="spotify-embed-container">
+          <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/6vUsQULGQ2KDeQ76xxmJv6?utm_source=generator&si=c918ef54e04b46c9"
+            width="100%" height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════ -->
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script>
+    // Año actual en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Hamburger toggle ──────────────────────────
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+
+    // ── Barra de progreso de scroll ───────────────
+    const scrollBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop  = window.scrollY;
+      const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollBar.style.width = pct + '%';
+    }, { passive: true });
+
+    // ── Hero: slow zoom on load ───────────────────
+    const heroSection = document.querySelector('.nos-hero');
+    if (heroSection) {
+      requestAnimationFrame(() => heroSection.classList.add('loaded'));
+    }
+
+    // ── Reveal on scroll ─────────────────────────
+    const revealEls = document.querySelectorAll('.nos-reveal');
+    if (revealEls.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach((el) => observer.observe(el));
+    }
+  </script>
+
+  <!-- ════════════════════════════════════════════
+       MODAL — Agenda tu cita (Elige cómo empezar)
+  ════════════════════════════════════════════ -->
+  <div class="modal" id="modalAgenda" role="dialog" aria-modal="true" aria-labelledby="agendaModalTitle">
+    <div class="modal-content modal-content-wide">
+      <button class="modal-close" data-close-modal="modalAgenda" aria-label="Cerrar">&times;</button>
+
+      <div class="modal-header" style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="eyebrow-magenta">— INVERSIÓN</span>
+        <h3 id="agendaModalTitle" style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--color-purple); margin: 0.4rem 0 0.6rem;">Elige cómo empezar.</h3>
+        <p style="max-width: 580px; margin: 0 auto; color: var(--color-gray); font-size: 0.98rem; line-height: 1.5;">
+          Puedes comenzar con una sola sesión y decidir si continuar, o ir directo al proceso completo.
+        </p>
+      </div>
+
+      <div class="precios-grid" style="margin-top: 1rem;">
+
+        <!-- 01 -->
+        <article class="card" data-service="partida" data-price="USD 100">
+          <p class="precio-n">01</p>
+          <p class="precio-ses">1 sesión</p>
+          <h4 class="precio-nombre">Punto de Partida</h4>
+          <div class="precio-price-wrap">
+            <p class="precio-amount">USD 100</p>
+            <p class="precio-cop">COP $300.000</p>
+          </div>
+          <ul class="precio-list">
+            <li>Cuestionario Mapa de Pareja + sesión de lectura conjunta.</li>
+          </ul>
+          <a href="https://checkout.wompi.co/l/5bc1vx" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Agendar esta sesión</a>
+        </article>
+
+        <!-- 02 -->
+        <article class="card" data-service="partida-ruta" data-price="USD 180">
+          <p class="precio-n">02</p>
+          <p class="precio-ses">2 sesiones</p>
+          <h4 class="precio-nombre">Punto de Partida + Ruta Inicial</h4>
+          <div class="precio-price-wrap">
+            <p class="precio-amount">USD 180</p>
+            <p class="precio-cop">COP $540.000</p>
+          </div>
+          <ul class="precio-list">
+            <li>Lo anterior + sesión de ruta: primeras líneas de acuerdo y plan de trabajo.</li>
+          </ul>
+          <a href="https://checkout.wompi.co/l/2eBvty" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Agendar estas sesiones</a>
+        </article>
+
+        <!-- 03 (Más elegida) -->
+        <article class="card card-featured" data-service="completo" data-price="USD 480">
+          <span class="card-badge">Más elegida</span>
+          <p class="precio-n">03</p>
+          <p class="precio-ses">6 sesiones</p>
+          <h4 class="precio-nombre">Acuerdos desde Adentro · completo</h4>
+          <div class="precio-price-wrap">
+            <p class="precio-amount">USD 480</p>
+            <p class="precio-cop">COP $1.440.000</p>
+          </div>
+          <ul class="precio-list">
+            <li>Metodología completa + acompañamiento asincrónico entre sesiones 5 y 6.</li>
+          </ul>
+          <a href="https://checkout.wompi.co/l/GY9Bia" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar el proceso</a>
+        </article>
+
+      </div>
+
+      <p style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:var(--color-gray);">
+        Modalidad virtual o presencial en Medellín · Pagos en COP o USD · Cupos limitados por mes
+      </p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       MODAL — Pago Confirmado (Wompi Success)
+  ════════════════════════════════════════════ -->
+  <div class="modal" id="modalPagoConfirmado" role="dialog" aria-modal="true" aria-labelledby="pagoConfirmadoTitle">
+    <div class="modal-content" style="max-width: 520px; text-align: center; padding: 2.8rem 2rem 2.2rem; border-radius: 24px;">
+      <button class="modal-close" data-close-modal="modalPagoConfirmado" aria-label="Cerrar">&times;</button>
+
+      <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, rgba(186,0,124,0.12) 0%, rgba(55,18,96,0.12) 100%); border: 2px solid var(--color-magenta); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; color: var(--color-magenta); font-size: 2rem; font-weight: 700;">
+        ✓
+      </div>
+
+      <span class="eyebrow-magenta" style="display: block; text-align: center; margin-bottom: 0.5rem;">— PAGO CONFIRMADO</span>
+      <h3 id="pagoConfirmadoTitle" style="font-family: var(--font-serif); font-size: 1.9rem; color: var(--color-purple); margin-bottom: 0.75rem; line-height: 1.2;">
+        ¡Pago realizado con éxito!
+      </h3>
+
+      <p style="color: var(--color-gray); font-size: 0.98rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        ¡Gracias por dar el primer paso! Hemos registrado tu transacción correctamente.
+      </p>
+
+      <div style="background: rgba(186, 0, 124, 0.05); border: 1.5px dashed rgba(186, 0, 124, 0.3); border-radius: 16px; padding: 1.2rem 1.4rem; text-align: left; margin-bottom: 1.75rem;">
+        <p style="font-size: 0.92rem; font-weight: 700; color: var(--color-purple); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>📸</span> Te recomendamos tomar un pantallazo
+        </p>
+        <p style="font-size: 0.88rem; color: #554e5e; line-height: 1.5; margin: 0;">
+          Guarda una captura de esta pantalla o de tu comprobante de pago Wompi y envíala a nuestro WhatsApp para programar la fecha y hora exacta de tu sesión.
+        </p>
+      </div>
+
+      <a href="https://wa.me/573006977800?text=Hola%20Vale%20y%20JuanPa,%20acabo%20de%20realizar%20el%20pago%20de%20mi%20sesi%C3%B3n%20en%20Sin%20Filtro.%20Adjunto%20comprobante."
+        target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.98rem;">
+        📲 Enviar comprobante por WhatsApp
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
