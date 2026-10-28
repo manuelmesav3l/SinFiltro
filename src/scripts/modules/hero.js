@@ -3,6 +3,8 @@
  * El hero en sí es fijo: no se desplaza, no se funde ni se oscurece al hacer scroll.
  */
 
+import { startSmoke } from './hero-smoke.js';
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isSmallScreen = () => window.innerWidth < 700;
 
@@ -18,19 +20,39 @@ export function initHeroBackground() {
   }
 
   const bg = video.closest('.hero-bg');
+  const plate = bg?.querySelector('.hero-bg__plate');
   const gestureEvents = ['touchend', 'pointerup', 'click', 'keydown'];
 
   // iOS Safari solo permite autoplay si la *propiedad* muted es true (el atributo no basta).
   video.muted = true;
   video.defaultMuted = true;
 
+  // Humo por WebGL: no depende del autoplay, así que se mueve solo en cualquier celular.
+  let smoke = null;
+  let smokeRequested = false;
+
+  function showSmoke() {
+    if (smokeRequested || !plate || bg.classList.contains('is-playing')) return;
+    smokeRequested = true;
+    startSmoke(bg, plate.currentSrc || plate.src).then((instance) => {
+      if (!instance) return; // sin WebGL: queda el movimiento CSS de .is-still
+      if (bg.classList.contains('is-playing')) {
+        instance.stop();
+        return;
+      }
+      smoke = instance;
+      bg.classList.remove('is-still');
+    });
+  }
+
   function tryPlay() {
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Autoplay bloqueado (p. ej. Modo de bajo consumo de iOS): se queda la imagen still
-        // con un leve movimiento y se reintenta en el siguiente gesto del usuario.
-        bg?.classList.add('is-still');
+        // Autoplay bloqueado (p. ej. Modo de bajo consumo de iOS): el humo pasa a WebGL
+        // (con el movimiento CSS como respaldo) y se reintenta el video en el siguiente gesto.
+        if (!smoke) bg?.classList.add('is-still');
+        showSmoke();
       });
     }
   }
@@ -40,6 +62,7 @@ export function initHeroBackground() {
   video.addEventListener('playing', () => {
     video.classList.add('is-loaded');
     bg?.classList.add('is-playing');
+    smoke?.stop();
     gestureEvents.forEach((evt) => document.removeEventListener(evt, tryPlay, true));
   }, { once: true });
 
@@ -55,6 +78,11 @@ export function initHeroBackground() {
   });
 
   tryPlay();
+
+  // Si el video tarda o play() nunca resuelve, el humo no espera: se muestra el WebGL mientras tanto.
+  setTimeout(() => {
+    if (!bg.classList.contains('is-playing')) showSmoke();
+  }, 1500);
 }
 
 // ── Parallax de halos (el hero permanece fijo) ────────────
