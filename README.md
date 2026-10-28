@@ -399,5 +399,3 @@ El sitio web cuenta con un sistema de **sincronización y actualización autóno
 5. Abre un Pull Request hacia `main`
 
 ---
-
-_Hecho con ❤️ por el equipo de Sin Filtro_
