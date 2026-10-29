@@ -8,6 +8,8 @@ const __dirname = dirname(__filename);
 const CHANNEL_HANDLE = '@Sinfiltrovaleyjuanpa';
 const CHANNEL_URL = `https://www.youtube.com/${CHANNEL_HANDLE}/videos`;
 const OUTPUT_FILE = resolve(__dirname, '../public/data/youtube-videos.json');
+const REQUEST_TIMEOUT_MS = 15000;
+const OPTIONAL = process.argv.includes('--optional');
 
 // Catálogo de colaboraciones destacadas (Spotify, YouTube y otros)
 const COLABORACIONES_CATALOG = [
@@ -98,6 +100,7 @@ export async function fetchYouTubeVideos() {
   console.log(`📡 Consultando últimos videos de ${CHANNEL_HANDLE}...`);
   
   const response = await fetch(CHANNEL_URL, {
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
       'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
@@ -154,6 +157,12 @@ export async function fetchYouTubeVideos() {
     });
   }
 
+  // Si YouTube cambia su HTML o devuelve una página de consentimiento no hay videos que leer:
+  // fallar aquí evita sobrescribir el catálogo bueno con uno vacío.
+  if (videos.length === 0) {
+    throw new Error('YouTube no devolvió videos del canal; se conserva el catálogo existente');
+  }
+
   console.log(`✅ ${videos.length} videos extraídos correctamente.`);
 
   const payload = {
@@ -179,6 +188,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       process.exit(0);
     })
     .catch((err) => {
+      // Con --optional (usado por `npm run build`) un fallo de YouTube no debe tumbar el deploy:
+      // se publica con el catálogo ya commiteado. Sin la bandera (GitHub Actions) falla visible.
+      if (OPTIONAL && existsSync(OUTPUT_FILE)) {
+        console.warn('⚠️ No se pudo sincronizar con YouTube; se usa el catálogo existente:', err.message);
+        process.exit(0);
+      }
       console.error('❌ Error durante la sincronización:', err);
       process.exit(1);
     });
