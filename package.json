@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "sync:youtube": "node scripts/sync-youtube.mjs",
-    "build": "node scripts/sync-youtube.mjs && vite build",
+    "build": "node scripts/sync-youtube.mjs --optional && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && npx vercel --prod --yes",
     "tunnel": "node scripts/share.mjs",
