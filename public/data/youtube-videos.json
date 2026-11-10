@@ -1,8 +1,18 @@
 {
   "channel": "@Sinfiltrovaleyjuanpa",
   "channelUrl": "https://www.youtube.com/@Sinfiltrovaleyjuanpa",
-  "lastUpdated": "2026-11-10T13:55:58.829Z",
+  "lastUpdated": "2026-11-10T21:06:03.165Z",
   "canal": [
+    {
+      "id": "vLjphoMumRY",
+      "type": "youtube",
+      "videoId": "vLjphoMumRY",
+      "badge": "EP 11",
+      "title": "Nuestros inicios en el poliamor",
+      "rawTitle": "Descualquierados | Episodio 11: Nuestros inicios en el poliamor",
+      "thumbnail": "https://i.ytimg.com/vi/vLjphoMumRY/mqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=vLjphoMumRY"
+    },
     {
       "id": "_JvOOQvDSXo",
       "type": "youtube",
@@ -164,6 +174,16 @@
     "thumbnail": "https://image-cdn-fa.spotifycdn.com/image/ab6772ab00001692140b9b4bf540a14a3ca5955a"
   },
   "videos": [
+    {
+      "id": "vLjphoMumRY",
+      "type": "youtube",
+      "videoId": "vLjphoMumRY",
+      "badge": "EP 11",
+      "title": "Nuestros inicios en el poliamor",
+      "rawTitle": "Descualquierados | Episodio 11: Nuestros inicios en el poliamor",
+      "thumbnail": "https://i.ytimg.com/vi/vLjphoMumRY/mqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=vLjphoMumRY"
+    },
     {
       "id": "_JvOOQvDSXo",
       "type": "youtube",
