@@ -1,17 +1,17 @@
 {
   "channel": "@Sinfiltrovaleyjuanpa",
   "channelUrl": "https://www.youtube.com/@Sinfiltrovaleyjuanpa",
-  "lastUpdated": "2026-11-10T21:06:03.165Z",
+  "lastUpdated": "2026-11-11T03:41:55.807Z",
   "canal": [
     {
-      "id": "vLjphoMumRY",
+      "id": "5zMPNFAaKIw",
       "type": "youtube",
-      "videoId": "vLjphoMumRY",
+      "videoId": "5zMPNFAaKIw",
       "badge": "EP 11",
-      "title": "Nuestros inicios en el poliamor",
-      "rawTitle": "Descualquierados | Episodio 11: Nuestros inicios en el poliamor",
-      "thumbnail": "https://i.ytimg.com/vi/vLjphoMumRY/mqdefault.jpg",
-      "youtubeUrl": "https://www.youtube.com/watch?v=vLjphoMumRY"
+      "title": "Nuestros inicios en el poliamor, la ética no la da el formato",
+      "rawTitle": "Descualquierados | Episodio 11:  Nuestros inicios en el poliamor, la ética no la da el formato",
+      "thumbnail": "https://i.ytimg.com/vi/5zMPNFAaKIw/mqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=5zMPNFAaKIw"
     },
     {
       "id": "_JvOOQvDSXo",
@@ -175,14 +175,14 @@
   },
   "videos": [
     {
-      "id": "vLjphoMumRY",
+      "id": "5zMPNFAaKIw",
       "type": "youtube",
-      "videoId": "vLjphoMumRY",
+      "videoId": "5zMPNFAaKIw",
       "badge": "EP 11",
-      "title": "Nuestros inicios en el poliamor",
-      "rawTitle": "Descualquierados | Episodio 11: Nuestros inicios en el poliamor",
-      "thumbnail": "https://i.ytimg.com/vi/vLjphoMumRY/mqdefault.jpg",
-      "youtubeUrl": "https://www.youtube.com/watch?v=vLjphoMumRY"
+      "title": "Nuestros inicios en el poliamor, la ética no la da el formato",
+      "rawTitle": "Descualquierados | Episodio 11:  Nuestros inicios en el poliamor, la ética no la da el formato",
+      "thumbnail": "https://i.ytimg.com/vi/5zMPNFAaKIw/mqdefault.jpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=5zMPNFAaKIw"
     },
     {
       "id": "_JvOOQvDSXo",
